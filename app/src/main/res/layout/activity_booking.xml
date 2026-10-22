@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/AppToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/booking_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                style="@style/CardBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_hotel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/link"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/CardBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_dates"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="@string/choose_dates" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:stretchColumns="1">
+
+                    <TableRow android:paddingVertical="6dp">
+
+                        <TextView
+                            style="@style/Label"
+                            android:text="@string/check_in" />
+
+                        <TextView
+                            android:id="@+id/text_check_in"
+                            style="@style/Value"
+                            android:gravity="end"
+                            android:text="@string/not_selected" />
+                    </TableRow>
+
+                    <TableRow android:paddingVertical="6dp">
+
+                        <TextView
+                            style="@style/Label"
+                            android:text="@string/check_out" />
+
+                        <TextView
+                            android:id="@+id/text_check_out"
+                            style="@style/Value"
+                            android:gravity="end"
+                            android:text="@string/not_selected" />
+                    </TableRow>
+
+                    <TableRow android:paddingVertical="6dp">
+
+                        <TextView
+                            style="@style/Label"
+                            android:text="@string/nights" />
+
+                        <TextView
+                            android:id="@+id/text_nights"
+                            style="@style/Value"
+                            android:gravity="end"
+                            android:text="-" />
+                    </TableRow>
+
+                    <TableRow android:paddingVertical="6dp">
+
+                        <TextView
+                            style="@style/Label"
+                            android:text="@string/total" />
+
+                        <TextView
+                            android:id="@+id/text_total"
+                            style="@style/Value"
+                            android:gravity="end"
+                            android:text="-"
+                            android:textColor="@color/link"
+                            android:textSize="20sp" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/confirm_booking"
+                android:textSize="16sp" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

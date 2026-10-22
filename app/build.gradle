@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Doc cau hinh rieng tung may trong local.properties (khong commit).
+// Vi du chay voi backend tren may tu may ao: api.baseUrl=http://10.0.2.2:8080
+def localProps = new Properties()
+def localFile = rootProject.file('local.properties')
+if (localFile.exists()) {
+    localFile.withInputStream { localProps.load(it) }
+}
+def apiBaseUrl = localProps.getProperty('api.baseUrl', 'https://webbooking-c5iu.onrender.com').replaceAll('/+$', '')
+def webBaseUrl = localProps.getProperty('web.baseUrl', 'https://ript-1307-03-2026-nhom2-kthp.vercel.app').replaceAll('/+$', '')
+
+android {
+    namespace 'com.nhom2.appbooking'
+    compileSdk 37
+
+    defaultConfig {
+        applicationId 'com.nhom2.appbooking'
+        minSdk 26
+        targetSdk 37
+        versionCode 1
+        versionName '1.0'
+
+        buildConfigField 'String', 'API_BASE_URL', "\"${apiBaseUrl}/\""
+        buildConfigField 'String', 'WEB_BASE_URL', "\"${webBaseUrl}\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // Goi API backend
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // Tai anh khach san / phong / logo ngan hang
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+
+    testImplementation 'junit:junit:4.13.2'
+}

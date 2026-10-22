@@ -1,0 +1,4 @@
+# gradlew phai giu LF de chay duoc tren Linux (CI); file .bat giu CRLF cho Windows
+/gradlew text eol=lf
+*.bat text eol=crlf
+*.jar binary
