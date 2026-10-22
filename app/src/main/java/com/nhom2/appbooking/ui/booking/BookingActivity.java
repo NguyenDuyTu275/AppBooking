@@ -20,6 +20,7 @@ import com.nhom2.appbooking.data.model.Hotel;
 import com.nhom2.appbooking.data.model.Room;
 import com.nhom2.appbooking.databinding.ActivityBookingBinding;
 import com.nhom2.appbooking.ui.ApiCallback;
+import com.nhom2.appbooking.ui.AssistantFab;
 import com.nhom2.appbooking.ui.payment.PaymentActivity;
 import com.nhom2.appbooking.util.Formatters;
 
@@ -59,6 +60,7 @@ public class BookingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBookingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        AssistantFab.attach(this, findViewById(android.R.id.content));
         binding.toolbar.setNavigationOnClickListener(v -> finish());
 
         Intent intent = getIntent();

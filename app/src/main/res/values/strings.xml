@@ -113,6 +113,28 @@
     <string name="chat_empty">Hãy gửi câu hỏi về đặt phòng, thanh toán hoặc khách sạn. Nhân viên sẽ trả lời tại đây.</string>
     <string name="chat_hint">Nhập tin nhắn…</string>
     <string name="send">Gửi</string>
+    <string name="assistant_title">Trợ lý đặt phòng AI</string>
+    <string name="assistant_subtitle">Luôn sẵn sàng đồng hành cùng bạn</string>
+    <string name="assistant_preview_badge">BẢN XEM TRƯỚC</string>
+    <string name="assistant_mode">Trợ lý AI</string>
+    <string name="human_support_mode">Nhân viên hỗ trợ</string>
+    <string name="assistant_welcome_title">Xin chào! Mình có thể giúp gì?</string>
+    <string name="assistant_welcome_body">Hỏi nhanh về khách sạn, đặt phòng hay thanh toán. Chọn một gợi ý bên dưới để bắt đầu nhé.</string>
+    <string name="assistant_suggestions_title">GỢI Ý CHO BẠN</string>
+    <string name="assistant_suggestion_hotel">Tìm khách sạn phù hợp</string>
+    <string name="assistant_suggestion_booking">Cách đặt phòng như thế nào?</string>
+    <string name="assistant_suggestion_payment">Hướng dẫn thanh toán</string>
+    <string name="assistant_hint">Nhập câu hỏi của bạn…</string>
+    <string name="assistant_preview_notice">Bản xem trước · câu trả lời mẫu, chưa kết nối AI</string>
+    <string name="chat_emojis">Chọn biểu cảm</string>
+    <string name="chat_attach">Đính kèm ảnh hoặc tệp</string>
+    <string name="open_ai_assistant">Mở trợ lý AI</string>
+    <string name="chat_image_attachment">Ảnh đính kèm</string>
+    <string name="chat_choose_attachment">Chọn loại tệp đính kèm</string>
+    <string name="chat_choose_image">Chọn ảnh</string>
+    <string name="chat_choose_file">Chọn tệp</string>
+    <string name="chat_attachment_name">📎 %1$s</string>
+    <string name="support_attachment_text_only">Máy chủ hiện chỉ nhận nội dung văn bản. Tin nhắn sẽ kèm tên tệp, chưa tải lên dữ liệu ảnh/tệp.</string>
 
     <!-- Tài khoản -->
     <string name="role_admin">Quản trị viên</string>

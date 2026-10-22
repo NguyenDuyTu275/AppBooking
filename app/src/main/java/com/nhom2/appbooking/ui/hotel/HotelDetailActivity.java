@@ -15,6 +15,7 @@ import com.nhom2.appbooking.data.model.Review;
 import com.nhom2.appbooking.data.model.ReviewPage;
 import com.nhom2.appbooking.databinding.ActivityHotelDetailBinding;
 import com.nhom2.appbooking.ui.ApiCallback;
+import com.nhom2.appbooking.ui.AssistantFab;
 import com.nhom2.appbooking.ui.booking.BookingActivity;
 import com.nhom2.appbooking.ui.home.HotelAdapter;
 import com.nhom2.appbooking.util.Formatters;
@@ -44,6 +45,7 @@ public class HotelDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHotelDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        AssistantFab.attach(this, findViewById(android.R.id.content));
         binding.toolbar.setNavigationOnClickListener(v -> finish());
 
         hotelId = getIntent().getLongExtra(EXTRA_HOTEL_ID, -1L);

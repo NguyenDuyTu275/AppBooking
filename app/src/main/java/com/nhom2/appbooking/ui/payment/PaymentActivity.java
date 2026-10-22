@@ -21,6 +21,7 @@ import com.nhom2.appbooking.data.model.Booking;
 import com.nhom2.appbooking.data.model.PaymentQr;
 import com.nhom2.appbooking.databinding.ActivityPaymentBinding;
 import com.nhom2.appbooking.ui.ApiCallback;
+import com.nhom2.appbooking.ui.AssistantFab;
 import com.nhom2.appbooking.ui.ImageLoader;
 import com.nhom2.appbooking.ui.MainActivity;
 import com.nhom2.appbooking.ui.UiUtils;
@@ -61,6 +62,7 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPaymentBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        AssistantFab.attach(this, findViewById(android.R.id.content));
         binding.toolbar.setNavigationOnClickListener(v -> finish());
 
         bookingId = getIntent().getLongExtra(EXTRA_BOOKING_ID, -1L);

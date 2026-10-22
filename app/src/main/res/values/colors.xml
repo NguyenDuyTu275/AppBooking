@@ -16,5 +16,8 @@
     <color name="warning_bg">#FFF4E0</color>
     <color name="error">#D4111E</color>
     <color name="error_bg">#FDECEC</color>
+    <color name="assistant_blue">#3157D5</color>
+    <color name="assistant_purple">#7556D8</color>
+    <color name="assistant_bubble">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
 </resources>

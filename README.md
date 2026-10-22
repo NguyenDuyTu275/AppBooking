@@ -20,7 +20,10 @@ App dùng chung backend với website WebBooking:
   - **App ngân hàng**: chọn ngân hàng, app ngân hàng mở ra; các app có nhãn "Tự điền" điền sẵn STK, số tiền, nội dung
   - Sepay báo tiền về cho backend, app tự kiểm tra và báo **Thanh toán thành công**
 - Đơn của tôi: trạng thái đơn và thanh toán, thanh toán tiếp hoặc hủy đơn
-- Chat hỗ trợ với nhân viên (tự cập nhật vài giây một lần)
+- Chat với nhân viên hỗ trợ (tự cập nhật vài giây một lần) và trợ lý AI ở hai chế độ riêng
+- Nút trợ lý AI hình tròn nổi ở góc dưới bên phải trên các màn hình sau khi đăng nhập; nhấn để mở nhanh cuộc trò chuyện AI
+- Trợ lý đặt phòng trong tab Hỗ trợ (bản xem trước với câu trả lời mẫu; chưa kết nối dịch vụ AI), có bong bóng chat, emoji và chọn ảnh/tệp đính kèm
+- Chat nhân viên có thể gửi emoji; backend chat hiện chỉ nhận văn bản nên khi đính kèm ảnh/tệp, tin nhắn chỉ kèm tên tệp, chưa tải dữ liệu tệp lên
 
 ## Công nghệ
 
