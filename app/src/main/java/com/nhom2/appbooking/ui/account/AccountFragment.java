@@ -51,6 +51,17 @@ public class AccountFragment extends Fragment {
                     showUser(profile.username, profile.email, "ADMIN".equals(profile.role));
                 }
             }
+
+            @Override
+            protected boolean signOutWhenRejected() {
+                // Backend cũ chỉ cho ADMIN gọi /users/me: giữ phiên, vẫn hiện tên từ token
+                return false;
+            }
+
+            @Override
+            protected void onError(String message) {
+                // Không lấy được email thì vẫn dùng được trang tài khoản
+            }
         });
     }
 

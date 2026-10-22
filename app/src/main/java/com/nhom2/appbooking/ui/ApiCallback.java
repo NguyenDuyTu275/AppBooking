@@ -39,6 +39,11 @@ public abstract class ApiCallback<T> implements Callback<T> {
 
     protected abstract void onSuccess(T body);
 
+    /** false cho request phụ mà lỗi quyền không có nghĩa là phiên đăng nhập đã hết (vd lấy hồ sơ). */
+    protected boolean signOutWhenRejected() {
+        return true;
+    }
+
     /** Mặc định hiện thông báo lỗi; ghi đè để xử lý thêm (vd tắt vòng xoay). */
     protected void onError(String message) {
         Context context = context();
@@ -58,7 +63,8 @@ public abstract class ApiCallback<T> implements Callback<T> {
         }
         Context context = context();
         ApiError error = ApiError.from(response);
-        if (ApiClient.isOwnApi(call.request()) && isSessionRejected(context, response.code(), error)) {
+        if (signOutWhenRejected() && ApiClient.isOwnApi(call.request())
+                && isSessionRejected(context, response.code(), error)) {
             backToLogin(context);
             return;
         }
