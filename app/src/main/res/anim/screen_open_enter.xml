@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Man moi truot nhe tu phai vao va hien dan -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/screen_transition_ms"
+    android:interpolator="@android:interpolator/fast_out_slow_in"
+    android:shareInterpolator="true">
+    <translate
+        android:fromXDelta="12%"
+        android:toXDelta="0" />
+    <alpha
+        android:fromAlpha="0"
+        android:toAlpha="1" />
+</set>

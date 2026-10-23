@@ -54,18 +54,18 @@ public final class Formatters {
         return t >= 0 && isoDateTime.length() >= t + 6 ? isoDateTime.substring(t + 1, t + 6) : "";
     }
 
+    /** "2026-10-22T11:33:29.123" -> "11:33 22/10" (giờ rồi ngày, như danh sách chat của admin trên web) */
+    public static String shortDateTime(String isoDateTime) {
+        if (isoDateTime == null || isoDateTime.length() < 10) {
+            return "";
+        }
+        String day = isoDateTime.substring(8, 10) + "/" + isoDateTime.substring(5, 7);
+        String clock = time(isoDateTime);
+        return clock.isEmpty() ? day : clock + " " + day;
+    }
+
     /** 4.75 -> "4.8"; null -> null */
     public static String rating(Double rating) {
         return rating == null || rating <= 0 ? null : String.format(Locale.ROOT, "%.1f", rating);
-    }
-
-    /** 4 -> "★★★★☆" */
-    public static String stars(Integer rating) {
-        int value = rating == null ? 0 : Math.max(0, Math.min(5, rating));
-        StringBuilder builder = new StringBuilder();
-        for (int i = 1; i <= 5; i++) {
-            builder.append(i <= value ? '★' : '☆');
-        }
-        return builder.toString();
     }
 }

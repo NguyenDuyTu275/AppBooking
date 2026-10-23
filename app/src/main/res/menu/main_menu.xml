@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nut tren header cua web cho khach: tim (yeu thich) va chuong (thong bao) -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_wishlist"
+        android:icon="@drawable/ic_favorite_border"
+        android:title="@string/wishlist_title"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_notifications"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/notifications_title"
+        app:showAsAction="always" />
+</menu>

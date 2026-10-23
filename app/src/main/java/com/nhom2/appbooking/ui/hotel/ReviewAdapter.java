@@ -1,6 +1,7 @@
 package com.nhom2.appbooking.ui.hotel;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.nhom2.appbooking.R;
 import com.nhom2.appbooking.data.model.Review;
 import com.nhom2.appbooking.databinding.ItemReviewBinding;
+import com.nhom2.appbooking.ui.home.HotelAdapter;
 import com.nhom2.appbooking.util.Formatters;
 
 import java.util.ArrayList;
@@ -38,15 +40,19 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.Holder> {
         Review review = reviews.get(position);
         ItemReviewBinding b = holder.binding;
 
-        b.textUsername.setText(review.username);
-        b.textStars.setText(Formatters.stars(review.rating));
+        Context context = b.getRoot().getContext();
+        // Điểm theo thang 1-10 như web (không đổi sang sao 5 bậc để khỏi làm tròn mất điểm)
+        int score = review.rating == null ? 0 : review.rating;
+        b.textScore.setText(String.valueOf(score));
+        b.textScoreWord.setText(HotelAdapter.ratingWord((double) score));
+        b.textUsername.setText(review.username == null ? context.getString(R.string.review_guest) : review.username);
         b.textComment.setText(review.comment);
         b.textDate.setText(Formatters.date(review.createdAt));
 
         boolean hasReply = review.hotelReply != null && !review.hotelReply.trim().isEmpty();
         b.textReply.setVisibility(hasReply ? View.VISIBLE : View.GONE);
         if (hasReply) {
-            b.textReply.setText(b.getRoot().getContext().getString(R.string.hotel_reply, review.hotelReply));
+            b.textReply.setText(context.getString(R.string.hotel_reply, review.hotelReply));
         }
     }
 

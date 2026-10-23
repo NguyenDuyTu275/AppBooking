@@ -14,7 +14,7 @@ import com.nhom2.appbooking.data.ApiRequests;
 import com.nhom2.appbooking.data.SessionManager;
 import com.nhom2.appbooking.databinding.ActivityLoginBinding;
 import com.nhom2.appbooking.ui.ApiCallback;
-import com.nhom2.appbooking.ui.MainActivity;
+import com.nhom2.appbooking.ui.HomeNavigator;
 import com.nhom2.appbooking.ui.UiUtils;
 
 /** Màn hình mở app: đăng nhập, hoặc vào thẳng trang chính nếu còn phiên đăng nhập. */
@@ -39,8 +39,21 @@ public class LoginActivity extends AppCompatActivity {
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.textBrand.setText(UiUtils.brand(this));
 
         binding.buttonLogin.setOnClickListener(v -> login());
+        binding.buttonGoogle.setOnClickListener(v -> GoogleSignInFlow.start(this, new GoogleSignInFlow.Listener() {
+            @Override
+            public void onLoading(boolean loading) {
+                setLoading(loading);
+            }
+
+            @Override
+            public void onSignedIn() {
+                openMain();
+            }
+        }));
+        binding.linkForgot.setOnClickListener(v -> ForgotPasswordActivity.start(this));
         binding.editPassword.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 login();
@@ -84,11 +97,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setLoading(boolean loading) {
         binding.buttonLogin.setEnabled(!loading);
+        binding.buttonGoogle.setEnabled(!loading);
         binding.progress.setVisibility(loading ? View.VISIBLE : View.GONE);
     }
 
+    /** Admin vào trang quản trị, khách vào trang đặt phòng (như web chuyển admin tới /admin). */
     private void openMain() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(HomeNavigator.homeIntent(this));
         finish();
     }
 }

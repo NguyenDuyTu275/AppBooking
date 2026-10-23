@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="@color/accent" />
+    <!-- Vang chuyen sac nhu .bk-avatar tren web -->
+    <gradient
+        android:angle="315"
+        android:endColor="@color/accent_dark"
+        android:startColor="@color/accent" />
+    <stroke android:width="2dp" android:color="@color/chip_on_primary" />
 </shape>

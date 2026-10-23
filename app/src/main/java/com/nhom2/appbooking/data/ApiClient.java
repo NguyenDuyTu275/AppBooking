@@ -43,14 +43,18 @@ public final class ApiClient {
                 .readTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(chain -> {
                     Request request = chain.request();
+                    if (!isOwnApi(request)) {
+                        return chain.proceed(request);
+                    }
+                    // Backend dịch thông báo lỗi và thông báo theo Accept-Language, như web gửi theo ngôn ngữ đang chọn
+                    Request.Builder builder = request.newBuilder()
+                            .header("Accept-Language", LanguageSettings.current().tag);
                     String token = session.getToken();
                     // Chỉ gắn JWT cho backend của mình, không lộ ra máy chủ khác
-                    if (token != null && isOwnApi(request)) {
-                        request = request.newBuilder()
-                                .header("Authorization", "Bearer " + token)
-                                .build();
+                    if (token != null) {
+                        builder.header("Authorization", "Bearer " + token);
                     }
-                    return chain.proceed(request);
+                    return chain.proceed(builder.build());
                 })
                 .build();
 

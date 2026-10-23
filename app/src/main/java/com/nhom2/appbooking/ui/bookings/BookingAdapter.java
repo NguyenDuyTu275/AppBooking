@@ -25,6 +25,8 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.Holder> 
         void onPay(Booking booking);
 
         void onCancel(Booking booking);
+
+        void onInvoice(Booking booking);
     }
 
     private final List<Booking> bookings = new ArrayList<>();
@@ -68,10 +70,16 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.Holder> 
         b.textPayment.setTextColor(ContextCompat.getColor(context, BookingStatusUi.paymentColor(booking)));
 
         // Đơn chưa trả tiền: thanh toán hoặc hủy (backend quyết định có cho hủy hay không)
-        boolean actionable = booking.canPay();
-        b.layoutActions.setVisibility(actionable ? View.VISIBLE : View.GONE);
+        boolean payable = booking.canPay();
+        // Đơn đã thanh toán: tải hóa đơn PDF như nút "Hóa đơn" trên web
+        boolean paid = booking.isPaid();
+        b.layoutActions.setVisibility(payable || paid ? View.VISIBLE : View.GONE);
+        b.buttonPay.setVisibility(payable ? View.VISIBLE : View.GONE);
+        b.buttonCancel.setVisibility(payable ? View.VISIBLE : View.GONE);
+        b.buttonInvoice.setVisibility(paid ? View.VISIBLE : View.GONE);
         b.buttonPay.setOnClickListener(v -> listener.onPay(booking));
         b.buttonCancel.setOnClickListener(v -> listener.onCancel(booking));
+        b.buttonInvoice.setOnClickListener(v -> listener.onInvoice(booking));
     }
 
     @Override

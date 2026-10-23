@@ -11,7 +11,9 @@ import com.nhom2.appbooking.data.ApiClient;
 import com.nhom2.appbooking.data.ApiRequests;
 import com.nhom2.appbooking.databinding.ActivityRegisterBinding;
 import com.nhom2.appbooking.ui.ApiCallback;
+import com.nhom2.appbooking.ui.HomeNavigator;
 import com.nhom2.appbooking.ui.UiUtils;
+import com.nhom2.appbooking.util.FormRules;
 
 /** Đăng ký 2 bước: nhập thông tin -> backend gửi OTP qua email -> nhập OTP để tạo tài khoản. */
 public class RegisterActivity extends AppCompatActivity {
@@ -24,8 +26,22 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.textBrand.setText(UiUtils.brand(this));
+        binding.divider.textDivider.setText(R.string.or_register_with);
 
         binding.buttonRegister.setOnClickListener(v -> register());
+        binding.buttonGoogle.setOnClickListener(v -> GoogleSignInFlow.start(this, new GoogleSignInFlow.Listener() {
+            @Override
+            public void onLoading(boolean loading) {
+                setLoading(loading);
+            }
+
+            @Override
+            public void onSignedIn() {
+                // Màn đăng nhập vẫn nằm dưới màn này: xóa cả hai để nút Back không quay lại form
+                HomeNavigator.openHome(RegisterActivity.this);
+            }
+        }));
         binding.buttonVerify.setOnClickListener(v -> verifyOtp());
         binding.linkLogin.setOnClickListener(v -> finish());
     }
@@ -37,6 +53,10 @@ public class RegisterActivity extends AppCompatActivity {
         String confirm = UiUtils.text(binding.editConfirm);
         if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, R.string.fill_all_fields, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!FormRules.isStrongPassword(password)) {
+            Toast.makeText(this, R.string.password_policy, Toast.LENGTH_LONG).show();
             return;
         }
         if (!password.equals(confirm)) {
@@ -93,6 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void setLoading(boolean loading) {
         binding.buttonRegister.setEnabled(!loading);
         binding.buttonVerify.setEnabled(!loading);
+        binding.buttonGoogle.setEnabled(!loading);
         binding.progress.setVisibility(loading ? View.VISIBLE : View.GONE);
     }
 }

@@ -54,7 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_primary"
-                        android:textSize="21sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -69,33 +69,87 @@
                         app:drawableStartCompat="@drawable/ic_location"
                         app:drawableTint="@color/link" />
 
+                    <!-- O ban do nhu tren web: iframe Google Maps khong tuong tac, bam vao thi mo Google Maps -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_map"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="12dp"
+                        android:clickable="true"
+                        android:contentDescription="@string/show_map"
+                        android:focusable="true"
+                        app:cardCornerRadius="8dp">
+
+                        <WebView
+                            android:id="@+id/web_map"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:layout_marginTop="-50dp"
+                            android:importantForAccessibility="noHideDescendants" />
+
+                        <!-- Lop phu chan cham vao WebView de cuon trang khong bi ban do giu lai -->
+                        <FrameLayout
+                            android:id="@+id/map_overlay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/map_overlay"
+                            android:clickable="true"
+                            android:focusable="false">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/button_show_map"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="@string/show_map"
+                                app:icon="@drawable/ic_location" />
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- O diem nhu .rating-box tren trang chi tiet cua web -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_card"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="12dp">
 
                         <TextView
                             android:id="@+id/text_rating"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bg_rating"
-                            android:paddingStart="7dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="7dp"
-                            android:paddingBottom="3dp"
+                            android:background="@drawable/bg_rating_box"
+                            android:paddingStart="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingEnd="8dp"
+                            android:paddingBottom="6dp"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/text_review_count"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="14sp" />
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/text_rating_word"
+                                style="@style/RatingWord"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/text_review_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <TextView
@@ -135,6 +189,12 @@
                     android:paddingEnd="16dp"
                     android:paddingBottom="8dp"
                     android:text="@string/reviews" />
+
+                <include
+                    android:id="@+id/review_form"
+                    layout="@layout/view_review_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/text_no_reviews"

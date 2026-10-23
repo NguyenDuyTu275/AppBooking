@@ -1,20 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.AppBooking" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
+        <!-- Nut, o nhap dang chon, vong xoay dung mau xanh cua nut tren web (#006CE4) -->
+        <item name="colorPrimary">@color/link</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/primary</item>
         <item name="colorSecondary">@color/link</item>
         <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/primary_light</item>
+        <item name="colorOnSecondaryContainer">@color/primary</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOutline">@color/border_dark</item>
         <item name="android:colorBackground">@color/bg</item>
         <!-- Thanh trang thai / dieu huong nam tren nen xanh dam -->
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar">false</item>
+        <!-- Android 8.0 (API 26) bo qua thuoc tinh nay, thanh dieu huong van toi mau -->
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+
+        <item name="android:windowAnimationStyle">@style/AppBooking.ScreenTransitions</item>
+
+        <item name="materialButtonStyle">@style/Widget.AppBooking.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.AppBooking.Button.Outlined</item>
+        <item name="textInputStyle">@style/Widget.AppBooking.TextInput</item>
+        <item name="bottomNavigationStyle">@style/Widget.AppBooking.BottomNav</item>
+        <item name="materialCardViewStyle">@style/Widget.AppBooking.Card</item>
+    </style>
+
+    <style name="ShapeAppearance.AppBooking.Small" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <!-- Nut chinh: xanh #006CE4, bo goc 8dp, chu dam, khong viet hoa (nhu .ant-btn-primary tren web) -->
+    <style name="Widget.AppBooking.Button" parent="Widget.Material3.Button">
+        <item name="iconGravity">textStart</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.AppBooking.Small</item>
+    </style>
+
+    <style name="Widget.AppBooking.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textColor">@color/link</item>
+        <item name="iconTint">@color/link</item>
+        <item name="iconGravity">textStart</item>
+        <item name="strokeColor">@color/link</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.AppBooking.Small</item>
+    </style>
+
+    <!-- Nut chon kieu thanh toan (QR / app ngan hang): chi to nen khi duoc chon -->
+    <style name="Widget.AppBooking.Button.Toggle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.AppBooking.Small</item>
+    </style>
+
+    <style name="Widget.AppBooking.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.AppBooking.Button.Danger" parent="Widget.AppBooking.Button.Outlined">
+        <item name="android:textColor">@color/error</item>
+        <item name="iconTint">@color/error</item>
+        <item name="strokeColor">@color/error</item>
+    </style>
+
+    <!-- Nut "Da thu tien" xanh la nhu tren trang quan tri cua web -->
+    <style name="Widget.AppBooking.Button.Success" parent="Widget.AppBooking.Button.Outlined">
+        <item name="android:textColor">@color/tag_green_text</item>
+        <item name="iconTint">@color/tag_green_text</item>
+        <item name="strokeColor">@color/tag_green_border</item>
+        <item name="backgroundTint">@color/tag_green_bg</item>
+    </style>
+
+    <!-- Nut nho trong cac the cua trang quan tri (size="small" tren web) -->
+    <style name="Widget.AppBooking.Button.Small">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="Widget.AppBooking.Button.Outlined.Small">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="Widget.AppBooking.Button.Danger.Small">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="Widget.AppBooking.Button.Success.Small">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <!-- Nut "Xuat Bao Cao Excel" mau xanh Excel nhu tren web -->
+    <style name="Widget.AppBooking.Button.Excel">
+        <item name="backgroundTint">@color/excel_green</item>
+    </style>
+
+    <!-- Tab muc quan tri tren nen xanh: chu trang, vach chon mau vang nhu tab tren header cua web -->
+    <style name="Widget.AppBooking.AdminTabs" parent="Widget.Material3.TabLayout">
+        <item name="android:background">@color/primary</item>
+        <item name="tabMode">scrollable</item>
+        <item name="tabGravity">start</item>
+        <item name="tabIndicatorColor">@color/accent</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabTextColor">@color/text_on_primary_soft</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabRippleColor">@color/chip_on_primary</item>
+        <item name="tabTextAppearance">@style/TextAppearance.AppBooking.AdminTab</item>
+    </style>
+
+    <style name="TextAppearance.AppBooking.AdminTab" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <!-- Nhan trang thai nho (Tag tren web) -->
+    <style name="TagText">
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="StatTitle">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="StatValue">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:drawablePadding">6dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <!-- Nut "Dang nhap bang Google": nen trang, vien xam, logo nhieu mau giu nguyen -->
+    <style name="Widget.AppBooking.Button.Google" parent="Widget.AppBooking.Button.Outlined">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="strokeColor">@color/border_dark</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="iconTint">@null</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">12dp</item>
+        <item name="iconSize">20dp</item>
+    </style>
+
+    <style name="Widget.AppBooking.Button.Icon" parent="Widget.Material3.Button.IconButton.Filled">
+        <item name="shapeAppearance">@style/ShapeAppearance.AppBooking.Small</item>
+    </style>
+
+    <style name="Widget.AppBooking.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/input_stroke</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="hintTextColor">@color/link</item>
+        <item name="startIconTint">@color/text_muted</item>
+    </style>
+
+    <style name="Widget.AppBooking.TextInput.Dense" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/input_stroke</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="hintTextColor">@color/link</item>
+        <item name="startIconTint">@color/text_muted</item>
+    </style>
+
+    <!-- O nhap co nhan rieng o phia tren (nhu form tren web): tat hint noi cua TextInputLayout -->
+    <style name="Widget.AppBooking.TextInput.Labeled">
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="Widget.AppBooking.Card" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">@color/card</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="Widget.AppBooking.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">@color/white</item>
+        <!-- Co do noi thi Material 3 phu mau chu dao len nen, lam thanh nga xanh; dung duong ke thay the -->
+        <item name="elevation">0dp</item>
+        <item name="itemIconTint">@color/bottom_nav_item</item>
+        <item name="itemTextColor">@color/bottom_nav_item</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.AppBooking.BottomNav.Indicator</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.AppBooking.NavLabel.Active</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.AppBooking.NavLabel</item>
+    </style>
+
+    <style name="Widget.AppBooking.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary_light</item>
+    </style>
+
+    <style name="TextAppearance.AppBooking.NavLabel" parent="TextAppearance.Material3.LabelMedium" />
+
+    <style name="TextAppearance.AppBooking.NavLabel.Active">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.AppBooking.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="AppToolbar" parent="Widget.Material3.Toolbar">
         <item name="android:background">@color/primary</item>
         <item name="titleTextColor">@color/white</item>
+        <item name="titleTextAppearance">@style/TextAppearance.AppBooking.ToolbarTitle</item>
         <item name="navigationIconTint">@color/white</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.AppBooking.Toolbar</item>
+    </style>
+
+    <!-- Nut ba cham (menu) mau trang tren thanh xanh -->
+    <style name="ThemeOverlay.AppBooking.Toolbar" parent="">
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <!-- Logo thuong hieu tren thanh xanh, nhu .bk-logo tren web -->
+    <style name="BrandLogo">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
     </style>
 
     <style name="CardBox">
@@ -23,9 +278,50 @@
     </style>
 
     <style name="SectionTitle">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="SectionSubtitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="AuthTitle">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="FieldLabel">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Hieu ung mo / dong man hinh cho moi Activity -->
+    <style name="AppBooking.ScreenTransitions" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/screen_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/screen_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/screen_close_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/screen_close_exit</item>
+    </style>
+
+    <!-- Mot buoc trong thanh tien trinh quen mat khau; mau doi theo buoc hien tai trong code -->
+    <style name="ForgotStep">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_muted</item>
+    </style>
+
+    <style name="LinkText">
+        <item name="android:textColor">@color/link</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
     <style name="Label">
@@ -37,5 +333,23 @@
         <item name="android:textSize">15sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Nhan diem danh gia: o vuong xanh dam + chu "Tot", "On"... nhu the khach san tren web -->
+    <style name="RatingScore">
+        <item name="android:background">@drawable/bg_rating</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RatingWord">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

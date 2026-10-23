@@ -1,20 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Cung bang mau voi website (frontend/src/index.css) de app va web nhin dong bo -->
     <color name="primary">#003B95</color>
-    <color name="primary_dark">#00296B</color>
+    <color name="primary_dark">#003580</color>
+    <color name="primary_light">#EBF3FF</color>
+    <color name="profile_gradient_end">#005CC5</color>
     <color name="accent">#FEBB02</color>
+    <color name="accent_dark">#F5A623</color>
     <color name="link">#006CE4</color>
     <color name="bg">#F5F5F5</color>
     <color name="card">#FFFFFF</color>
     <color name="divider">#E7E7E7</color>
+    <color name="border_dark">#BDBDBD</color>
     <color name="placeholder">#E0E0E0</color>
     <color name="text_primary">#1A1A1A</color>
     <color name="text_secondary">#595959</color>
+    <color name="text_muted">#8C8C8C</color>
+    <color name="text_on_primary_soft">#E6FFFFFF</color>
+    <color name="chip_on_primary">#33FFFFFF</color>
     <color name="success">#008234</color>
-    <color name="success_bg">#E6F4EA</color>
-    <color name="warning">#B26A00</color>
-    <color name="warning_bg">#FFF4E0</color>
-    <color name="error">#D4111E</color>
-    <color name="error_bg">#FDECEC</color>
+    <color name="success_bg">#EBF7EE</color>
+    <color name="warning">#856404</color>
+    <color name="warning_bg">#FFF3CD</color>
+    <color name="error">#CC0000</color>
+    <color name="error_bg">#FEF0F0</color>
     <color name="white">#FFFFFF</color>
+
+    <!-- Nhan trang thai o trang quan tri: bang mau the <Tag> cua Ant Design ma web dung -->
+    <color name="tag_orange_bg">#FFF7E6</color>
+    <color name="tag_orange_text">#D46B08</color>
+    <color name="tag_orange_border">#FFD591</color>
+    <color name="tag_gold_bg">#FFFBE6</color>
+    <color name="tag_gold_text">#D48806</color>
+    <color name="tag_gold_border">#FFE58F</color>
+    <color name="tag_green_bg">#F6FFED</color>
+    <color name="tag_green_text">#389E0D</color>
+    <color name="tag_green_border">#B7EB8F</color>
+    <color name="tag_red_bg">#FFF1F0</color>
+    <color name="tag_red_text">#CF1322</color>
+    <color name="tag_red_border">#FFA39E</color>
+    <color name="tag_volcano_bg">#FFF2E8</color>
+    <color name="tag_volcano_text">#D4380D</color>
+    <color name="tag_volcano_border">#FFBB96</color>
+    <color name="tag_blue_bg">#E6F4FF</color>
+    <color name="tag_blue_text">#0958D9</color>
+    <color name="tag_blue_border">#91CAFF</color>
+    <color name="tag_cyan_bg">#E6FFFB</color>
+    <color name="tag_cyan_text">#08979C</color>
+    <color name="tag_cyan_border">#87E8DE</color>
+    <color name="tag_magenta_bg">#FFF0F6</color>
+    <color name="tag_magenta_text">#C41D7F</color>
+    <color name="tag_magenta_border">#FFADD2</color>
+    <color name="tag_grey_bg">#FAFAFA</color>
+    <color name="tag_grey_text">#262626</color>
+    <color name="tag_grey_border">#D9D9D9</color>
+
+    <!-- Trang Tong quan cua admin (AdminOverview tren web) -->
+    <color name="stat_revenue">#3F8600</color>
+    <color name="stat_revenue_bg_start">#F6FFED</color>
+    <color name="stat_revenue_bg_end">#E6F7FF</color>
+    <color name="stat_pending">#FAAD14</color>
+    <color name="stat_requests">#CF1322</color>
+    <color name="excel_green">#107C41</color>
+    <color name="chart_line">#1890FF</color>
+    <color name="chart_grid">#F0F0F0</color>
+    <color name="chart_confirmed">#52C41A</color>
+    <color name="chart_closed">#FF4D4F</color>
+    <color name="reply_bg">#F0F5FF</color>
+
+    <!-- Tim yeu thich va thong bao chua doc nhu tren web -->
+    <color name="wish_active">#E71D36</color>
+    <color name="wish_inactive">#666666</color>
+    <color name="notification_title">#C00000</color>
+    <color name="notification_unread_bg">#F4F9FD</color>
+    <color name="star_empty">#D9D9D9</color>
+
+    <!-- Lop trang mo tren o ban do, rgba(255,255,255,0.15) nhu web -->
+    <color name="map_overlay">#26FFFFFF</color>
 </resources>
