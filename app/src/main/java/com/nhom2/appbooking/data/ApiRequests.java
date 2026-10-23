@@ -231,4 +231,24 @@ public final class ApiRequests {
             this.description = description;
         }
     }
+
+    /** Hóa đơn tiền mặt admin đã kiểm tra sau khi quét (ngày dạng yyyy-MM-dd). */
+    public static class CashReceipt {
+        final double amount;
+        final String revenueDate;
+        final String receiptNumber;
+        final String customerName;
+        final String hotelName;
+        final String description;
+
+        public CashReceipt(double amount, String revenueDate, String receiptNumber,
+                           String customerName, String hotelName, String description) {
+            this.amount = amount;
+            this.revenueDate = revenueDate;
+            this.receiptNumber = receiptNumber;
+            this.customerName = customerName;
+            this.hotelName = hotelName;
+            this.description = description;
+        }
+    }
 }

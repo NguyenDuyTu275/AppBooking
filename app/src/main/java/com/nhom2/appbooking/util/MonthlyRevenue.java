@@ -1,6 +1,7 @@
 package com.nhom2.appbooking.util;
 
 import com.nhom2.appbooking.data.model.Booking;
+import com.nhom2.appbooking.data.model.RevenueReceipt;
 
 import java.time.YearMonth;
 import java.time.format.DateTimeParseException;
@@ -27,6 +28,15 @@ public final class MonthlyRevenue {
      * chỉ đơn đã thanh toán, xếp vào tháng của ngày nhận phòng (thiếu thì ngày tạo đơn).
      */
     public static List<MonthlyRevenue> lastMonths(List<Booking> bookings, YearMonth current, int count) {
+        return lastMonths(bookings, null, current, count);
+    }
+
+    /**
+     * Như trên, cộng thêm hóa đơn tiền mặt admin quét tại khách sạn vào tháng của ngày ghi doanh thu.
+     * Hóa đơn của đơn trên hệ thống không cộng lại vì đơn đó đã được tính khi thanh toán.
+     */
+    public static List<MonthlyRevenue> lastMonths(List<Booking> bookings, List<RevenueReceipt> receipts,
+                                                  YearMonth current, int count) {
         Map<YearMonth, Double> totals = new LinkedHashMap<>();
         for (int i = count - 1; i >= 0; i--) {
             totals.put(current.minusMonths(i), 0.0);
@@ -39,6 +49,14 @@ public final class MonthlyRevenue {
                 }
             }
         }
+        if (receipts != null) {
+            for (RevenueReceipt receipt : receipts) {
+                YearMonth month = monthOf(receipt.revenueDate);
+                if (receipt.isCash() && receipt.amount != null && month != null && totals.containsKey(month)) {
+                    totals.put(month, totals.get(month) + receipt.amount);
+                }
+            }
+        }
         List<MonthlyRevenue> result = new ArrayList<>();
         for (Map.Entry<YearMonth, Double> entry : totals.entrySet()) {
             result.add(new MonthlyRevenue(entry.getKey(), entry.getValue()));
@@ -47,8 +65,11 @@ public final class MonthlyRevenue {
     }
 
     private static YearMonth monthOf(Booking booking) {
-        String date = booking.checkInDate != null && !booking.checkInDate.isEmpty()
-                ? booking.checkInDate : booking.createdAt;
+        return monthOf(booking.checkInDate != null && !booking.checkInDate.isEmpty()
+                ? booking.checkInDate : booking.createdAt);
+    }
+
+    private static YearMonth monthOf(String date) {
         if (date == null || date.length() < YEAR_MONTH_LENGTH) {
             return null;
         }

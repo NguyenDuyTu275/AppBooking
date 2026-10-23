@@ -178,4 +178,40 @@
     <string name="admin_chat_empty">No conversations yet</string>
     <string name="admin_chat_rooms_load_failed">Could not load conversations</string>
     <string name="admin_chat_placeholder">Reply to the guest...</string>
+
+    <!-- Receipt scanning (Gemini) and the daily revenue report -->
+    <string name="admin_overview_scan">Scan a receipt (Gemini)</string>
+    <string name="admin_receipts_title">Scan receipts</string>
+    <string name="admin_receipts_daily">Revenue for the day</string>
+    <string name="admin_receipts_breakdown">Cash %1$s · System invoices %2$s · %3$d entries</string>
+    <string name="admin_receipts_camera">Take a photo</string>
+    <string name="admin_receipts_gallery">Choose a photo</string>
+    <string name="admin_receipts_reading">Gemini is reading the receipt…</string>
+    <string name="admin_receipts_hint">Receipts with a booking code from the system go straight into today’s revenue. Cash receipts from the hotel that are not in the system: check the details, then confirm.</string>
+    <string name="admin_receipts_list">Entries for the day</string>
+    <string name="admin_receipts_empty">No entries for this day yet</string>
+    <string name="admin_receipts_load_failed">Could not load the revenue report</string>
+    <string name="admin_receipts_source_cash">Cash</string>
+    <string name="admin_receipts_source_invoice">System invoice</string>
+    <string name="admin_receipts_booking">Booking %1$s</string>
+    <string name="admin_receipts_number">Receipt %1$s</string>
+    <string name="admin_receipts_photo_failed">Could not read the photo, please take it again</string>
+    <string name="admin_receipts_no_camera">No camera app was found</string>
+    <string name="admin_receipts_paid_title">Added to today’s revenue</string>
+    <string name="admin_receipts_paid_body">Booking %1$s was unpaid: it is now marked as paid (cash at the hotel) and %2$s was added to the revenue of %3$s.</string>
+    <string name="admin_receipts_added_title">Added to today’s report</string>
+    <string name="admin_receipts_added_body">The invoice of booking %1$s is already in the system: %2$s was added to the revenue report of %3$s.</string>
+    <string name="admin_receipts_already_title">Already in the report</string>
+    <string name="admin_receipts_already_body">The invoice of booking %1$s was recorded in the report of %2$s, so nothing was added.</string>
+    <string name="admin_receipts_cash_title">New cash receipt</string>
+    <string name="admin_receipts_cash_note">This receipt is not in the system. Check what Gemini read, then add it to the revenue.</string>
+    <string name="admin_receipts_amount">Amount (VND)</string>
+    <string name="admin_receipts_date">Revenue date</string>
+    <string name="admin_receipts_receipt_number">Receipt number</string>
+    <string name="admin_receipts_customer">Customer</string>
+    <string name="admin_receipts_hotel">Hotel</string>
+    <string name="admin_receipts_description">Description</string>
+    <string name="admin_receipts_amount_invalid">Enter an amount greater than 0</string>
+    <string name="admin_receipts_save">Add to revenue</string>
+    <string name="admin_receipts_saved">Added %1$s to the revenue of %2$s</string>
 </resources>

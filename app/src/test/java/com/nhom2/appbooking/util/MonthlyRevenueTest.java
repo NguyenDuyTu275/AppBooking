@@ -3,6 +3,7 @@ package com.nhom2.appbooking.util;
 import static org.junit.Assert.assertEquals;
 
 import com.nhom2.appbooking.data.model.Booking;
+import com.nhom2.appbooking.data.model.RevenueReceipt;
 
 import org.junit.Test;
 
@@ -62,5 +63,29 @@ public class MonthlyRevenueTest {
             total += month.revenue;
         }
         assertEquals(700_000.0, total, 0.001);
+    }
+
+    private static RevenueReceipt receipt(String source, String revenueDate, Double amount) {
+        RevenueReceipt receipt = new RevenueReceipt();
+        receipt.source = source;
+        receipt.revenueDate = revenueDate;
+        receipt.amount = amount;
+        return receipt;
+    }
+
+    @Test
+    public void cashReceiptsAddToTheMonthTheyWereRecordedButSystemInvoicesDoNot() {
+        List<Booking> bookings = Collections.singletonList(booking("2026-10-23", null, "PAID", 3_000_000.0));
+        List<RevenueReceipt> receipts = Arrays.asList(
+                receipt(RevenueReceipt.SOURCE_CASH, "2026-10-20", 850_000.0),
+                receipt(RevenueReceipt.SOURCE_CASH, "2026-09-02", 400_000.0),
+                // hóa đơn của đơn trên hệ thống: đơn đã được tính ở trên
+                receipt(RevenueReceipt.SOURCE_SYSTEM_INVOICE, "2026-10-23", 3_000_000.0),
+                receipt(RevenueReceipt.SOURCE_CASH, null, 100_000.0));
+
+        List<MonthlyRevenue> months = MonthlyRevenue.lastMonths(bookings, receipts, YearMonth.of(2026, 10), 6);
+
+        assertEquals(3_850_000.0, months.get(5).revenue, 0.001);
+        assertEquals(400_000.0, months.get(4).revenue, 0.001);
     }
 }

@@ -66,10 +66,26 @@
             android:name=".ui.admin.AdminRoomsActivity"
             android:exported="false" />
 
+        <!-- Quet hoa don bang may anh (Gemini) va bao cao doanh thu theo ngay -->
+        <activity
+            android:name=".ui.admin.ReceiptScanActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ui.admin.AdminChatRoomActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- App may anh ghi anh hoa don vao cache/receipts qua Uri cua FileProvider -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/receipt_paths" />
+        </provider>
 
         <!-- AppCompat tu luu ngon ngu da chon va ap dung lai khi mo app (Android 12 tro xuong) -->
         <service

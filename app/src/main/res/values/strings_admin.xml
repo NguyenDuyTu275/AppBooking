@@ -180,4 +180,40 @@
     <string name="admin_chat_empty">Chưa có cuộc trò chuyện nào</string>
     <string name="admin_chat_rooms_load_failed">Không thể tải danh sách hội thoại</string>
     <string name="admin_chat_placeholder">Trả lời khách...</string>
+
+    <!-- Quet hoa don (Gemini) va bao cao doanh thu theo ngay -->
+    <string name="admin_overview_scan">Quét hóa đơn (Gemini)</string>
+    <string name="admin_receipts_title">Quét hóa đơn</string>
+    <string name="admin_receipts_daily">Doanh thu ngày</string>
+    <string name="admin_receipts_breakdown">Tiền mặt %1$s · Hóa đơn hệ thống %2$s · %3$d khoản</string>
+    <string name="admin_receipts_camera">Chụp hóa đơn</string>
+    <string name="admin_receipts_gallery">Chọn ảnh</string>
+    <string name="admin_receipts_reading">Gemini đang đọc hóa đơn…</string>
+    <string name="admin_receipts_hint">Hóa đơn có mã đơn trên hệ thống được ghi ngay vào doanh thu hôm nay. Hóa đơn tiền mặt tại khách sạn chưa có trên hệ thống: kiểm tra thông tin rồi xác nhận.</string>
+    <string name="admin_receipts_list">Các khoản trong ngày</string>
+    <string name="admin_receipts_empty">Chưa có khoản nào trong ngày này</string>
+    <string name="admin_receipts_load_failed">Không thể tải báo cáo doanh thu</string>
+    <string name="admin_receipts_source_cash">Tiền mặt</string>
+    <string name="admin_receipts_source_invoice">Hóa đơn hệ thống</string>
+    <string name="admin_receipts_booking">Đơn %1$s</string>
+    <string name="admin_receipts_number">Số HĐ %1$s</string>
+    <string name="admin_receipts_photo_failed">Không đọc được ảnh, hãy chụp lại</string>
+    <string name="admin_receipts_no_camera">Không tìm thấy ứng dụng máy ảnh</string>
+    <string name="admin_receipts_paid_title">Đã ghi vào doanh thu hôm nay</string>
+    <string name="admin_receipts_paid_body">Đơn %1$s chưa thanh toán: đã chuyển sang Đã thanh toán (tiền mặt tại khách sạn) và cộng %2$s vào doanh thu ngày %3$s.</string>
+    <string name="admin_receipts_added_title">Đã thêm vào báo cáo hôm nay</string>
+    <string name="admin_receipts_added_body">Hóa đơn của đơn %1$s đã có trên hệ thống: đã thêm %2$s vào báo cáo doanh thu ngày %3$s.</string>
+    <string name="admin_receipts_already_title">Hóa đơn đã có trong báo cáo</string>
+    <string name="admin_receipts_already_body">Hóa đơn của đơn %1$s đã được ghi vào báo cáo ngày %2$s nên không ghi thêm.</string>
+    <string name="admin_receipts_cash_title">Hóa đơn tiền mặt mới</string>
+    <string name="admin_receipts_cash_note">Hóa đơn này chưa có trên hệ thống. Kiểm tra thông tin Gemini đọc được rồi ghi vào doanh thu.</string>
+    <string name="admin_receipts_amount">Số tiền (VND)</string>
+    <string name="admin_receipts_date">Ngày ghi doanh thu</string>
+    <string name="admin_receipts_receipt_number">Số hóa đơn</string>
+    <string name="admin_receipts_customer">Khách hàng</string>
+    <string name="admin_receipts_hotel">Khách sạn</string>
+    <string name="admin_receipts_description">Nội dung</string>
+    <string name="admin_receipts_amount_invalid">Nhập số tiền lớn hơn 0</string>
+    <string name="admin_receipts_save">Ghi vào doanh thu</string>
+    <string name="admin_receipts_saved">Đã ghi %1$s vào doanh thu ngày %2$s</string>
 </resources>

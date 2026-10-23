@@ -23,6 +23,7 @@ import com.nhom2.appbooking.R;
 import com.nhom2.appbooking.data.ApiClient;
 import com.nhom2.appbooking.data.model.AdminOverview;
 import com.nhom2.appbooking.data.model.Booking;
+import com.nhom2.appbooking.data.model.RevenueReceipt;
 import com.nhom2.appbooking.databinding.FragmentAdminOverviewBinding;
 import com.nhom2.appbooking.ui.ApiCallback;
 import com.nhom2.appbooking.ui.DownloadSaver;
@@ -48,6 +49,9 @@ public class AdminOverviewFragment extends Fragment {
 
     private FragmentAdminOverviewBinding binding;
     private int pendingRequests;
+    // Biểu đồ vẽ lại khi có thêm dữ liệu: đơn đã thanh toán + hóa đơn tiền mặt quét tại khách sạn
+    private List<Booking> chartBookings;
+    private List<RevenueReceipt> chartReceipts;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -62,6 +66,7 @@ public class AdminOverviewFragment extends Fragment {
         binding.swipe.setOnRefreshListener(this::load);
         binding.buttonExport.setOnClickListener(v -> createReport.launch(
                 getString(R.string.admin_overview_report_file, LocalDate.now().toString())));
+        binding.buttonScan.setOnClickListener(v -> ReceiptScanActivity.start(requireContext()));
     }
 
     @Override
@@ -72,7 +77,7 @@ public class AdminOverviewFragment extends Fragment {
 
     private void load() {
         binding.swipe.setRefreshing(true);
-        pendingRequests = 2;
+        pendingRequests = 3;
         ApiClient.get(requireContext()).getAdminOverview().enqueue(new ApiCallback<AdminOverview>(this) {
             @Override
             protected void onSuccess(AdminOverview overview) {
@@ -91,7 +96,8 @@ public class AdminOverviewFragment extends Fragment {
         ApiClient.get(requireContext()).getAdminBookings(null).enqueue(new ApiCallback<List<Booking>>(this) {
             @Override
             protected void onSuccess(List<Booking> bookings) {
-                showRevenueChart(bookings);
+                chartBookings = bookings;
+                showRevenueChart();
                 requestDone();
             }
 
@@ -100,6 +106,22 @@ public class AdminOverviewFragment extends Fragment {
                 requestDone();
             }
         });
+        String chartStart = YearMonth.now().minusMonths(CHART_MONTHS - 1).atDay(1).toString();
+        ApiClient.get(requireContext()).getRevenueReceipts(chartStart, null)
+                .enqueue(new ApiCallback<List<RevenueReceipt>>(this) {
+                    @Override
+                    protected void onSuccess(List<RevenueReceipt> receipts) {
+                        chartReceipts = receipts;
+                        showRevenueChart();
+                        requestDone();
+                    }
+
+                    @Override
+                    protected void onError(String message) {
+                        // Biểu đồ vẫn hiện doanh thu từ đơn đặt phòng
+                        requestDone();
+                    }
+                });
     }
 
     private void requestDone() {
@@ -143,8 +165,9 @@ public class AdminOverviewFragment extends Fragment {
         return row;
     }
 
-    private void showRevenueChart(List<Booking> bookings) {
-        List<MonthlyRevenue> months = MonthlyRevenue.lastMonths(bookings, YearMonth.now(), CHART_MONTHS);
+    private void showRevenueChart() {
+        List<MonthlyRevenue> months =
+                MonthlyRevenue.lastMonths(chartBookings, chartReceipts, YearMonth.now(), CHART_MONTHS);
         List<String> labels = new ArrayList<>();
         for (MonthlyRevenue month : months) {
             labels.add(getString(R.string.admin_overview_month_short, month.month.getMonthValue()));

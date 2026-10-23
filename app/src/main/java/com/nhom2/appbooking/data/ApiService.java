@@ -7,8 +7,11 @@ import com.nhom2.appbooking.data.model.BankAppList;
 import com.nhom2.appbooking.data.model.Booking;
 import com.nhom2.appbooking.data.model.BookingRequest;
 import com.nhom2.appbooking.data.model.ChatRoomSummary;
+import com.nhom2.appbooking.data.model.DailyRevenue;
 import com.nhom2.appbooking.data.model.Hotel;
 import com.nhom2.appbooking.data.model.PaymentQr;
+import com.nhom2.appbooking.data.model.ReceiptScanResult;
+import com.nhom2.appbooking.data.model.RevenueReceipt;
 import com.nhom2.appbooking.data.model.Review;
 import com.nhom2.appbooking.data.model.ReviewPage;
 import com.nhom2.appbooking.data.model.Room;
@@ -170,6 +173,24 @@ public interface ApiService {
 
     @PUT("admin/bookings/{bookingId}/paid")
     Call<Booking> markBookingPaid(@Path("bookingId") long bookingId);
+
+    // Quét hóa đơn bằng máy ảnh (backend gọi Gemini) và báo cáo doanh thu theo ngày
+
+    @Multipart
+    @POST("admin/receipts/scan")
+    Call<ReceiptScanResult> scanReceipt(@Part MultipartBody.Part file);
+
+    /** Ghi hóa đơn tiền mặt chưa có trên hệ thống sau khi admin kiểm tra thông tin. */
+    @POST("admin/receipts")
+    Call<RevenueReceipt> createCashReceipt(@Body ApiRequests.CashReceipt body);
+
+    /** date dạng yyyy-MM-dd; null = hôm nay theo giờ Việt Nam. */
+    @GET("admin/receipts/daily")
+    Call<DailyRevenue> getDailyRevenue(@Query("date") String date);
+
+    /** Các khoản đã ghi trong khoảng ngày (yyyy-MM-dd), để cộng tiền mặt vào biểu đồ doanh thu. */
+    @GET("admin/receipts")
+    Call<List<RevenueReceipt>> getRevenueReceipts(@Query("from") String from, @Query("to") String to);
 
     @GET("admin/booking-requests")
     Call<List<BookingRequest>> getBookingRequests(@Query("status") String status);
