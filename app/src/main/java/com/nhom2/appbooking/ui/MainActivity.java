@@ -3,6 +3,7 @@ package com.nhom2.appbooking.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.OptIn;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.badge.ExperimentalBadgeUtils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nhom2.appbooking.R;
 import com.nhom2.appbooking.data.ApiClient;
 import com.nhom2.appbooking.data.SessionManager;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private int currentTab;
     private BadgeDrawable wishlistBadge;
     private BadgeDrawable notificationBadge;
+    private FloatingActionButton assistantButton;
 
     /** Mở trang chính ở tab "Đơn của tôi" (vd sau khi thanh toán). */
     public static void openBookings(Context context) {
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setUpToolbarActions();
-        AssistantFab.attach(this, binding.container);
+        assistantButton = AssistantFab.attach(this, binding.container);
 
         binding.bottomNav.setOnItemSelectedListener(item -> {
             showTab(item.getItemId());
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             // Fragment đã được khôi phục, chỉ cần đặt lại tiêu đề
             currentTab = savedInstanceState.getInt(STATE_TAB, R.id.nav_home);
             showTitle(currentTab);
+            showAssistantButton(currentTab);
         }
     }
 
@@ -213,11 +217,17 @@ public class MainActivity extends AppCompatActivity {
             fragment = new HomeFragment();
         }
         showTitle(tabId);
+        showAssistantButton(tabId);
         getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(R.anim.tab_enter, R.anim.tab_exit)
                 .replace(R.id.container, fragment)
                 .commit();
+    }
+
+    /** Tab Hỗ trợ đã có sẵn trợ lý, còn nút nổi thì che nút gửi tin nhắn, nên ẩn đi. */
+    private void showAssistantButton(int tabId) {
+        assistantButton.setVisibility(tabId == R.id.nav_chat ? View.GONE : View.VISIBLE);
     }
 
     /** Tab Khách sạn hiện logo như header của web; các tab khác hiện tên tab. */

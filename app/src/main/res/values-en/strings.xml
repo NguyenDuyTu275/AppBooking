@@ -166,6 +166,11 @@
     <string name="assistant_suggestion_payment">How to pay</string>
     <string name="assistant_hint">Type your question…</string>
     <string name="assistant_preview_notice">Preview · sample answers, not connected to AI yet</string>
+    <string name="assistant_reply_payment">You can pay with the QR code or your banking app on the booking screen. After the transfer, the system usually confirms it within 1–3 minutes.</string>
+    <string name="assistant_reply_booking">Pick a hotel, look at the available rooms, choose your check-in and check-out dates, then confirm the booking. The total is shown before you confirm.</string>
+    <string name="assistant_reply_hotel">Open the Hotels tab to search by name or city. Pick a hotel to see its photos, reviews and available rooms.</string>
+    <string name="assistant_reply_greeting">Hi! I can help you find a hotel, book a room or pay. What would you like to know?</string>
+    <string name="assistant_reply_default">Got your question. In this preview I can help with finding hotels, booking and payment. Try asking about one of those.</string>
     <string name="chat_emojis">Choose an emoji</string>
     <string name="chat_attach">Attach an image or file</string>
     <string name="open_ai_assistant">Open the AI assistant</string>

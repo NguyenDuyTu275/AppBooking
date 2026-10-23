@@ -166,6 +166,11 @@
     <string name="assistant_suggestion_payment">Hướng dẫn thanh toán</string>
     <string name="assistant_hint">Nhập câu hỏi của bạn…</string>
     <string name="assistant_preview_notice">Bản xem trước · câu trả lời mẫu, chưa kết nối AI</string>
+    <string name="assistant_reply_payment">Bạn có thể thanh toán bằng mã QR hoặc app ngân hàng ở màn hình đơn đặt phòng. Sau khi chuyển khoản, hệ thống thường tự xác nhận trong 1–3 phút.</string>
+    <string name="assistant_reply_booking">Bạn hãy chọn khách sạn, xem phòng còn trống, chọn ngày nhận và trả phòng rồi xác nhận đặt phòng. Tổng tiền sẽ được hiển thị trước khi bạn xác nhận.</string>
+    <string name="assistant_reply_hotel">Mở tab Khách sạn để tìm theo tên hoặc thành phố. Chọn một khách sạn để xem ảnh, đánh giá và các phòng còn trống nhé.</string>
+    <string name="assistant_reply_greeting">Chào bạn! Mình có thể hướng dẫn tìm khách sạn, đặt phòng hoặc thanh toán. Bạn muốn tìm hiểu mục nào?</string>
+    <string name="assistant_reply_default">Mình đã nhận câu hỏi. Trong bản xem trước này, mình có thể hỗ trợ về tìm khách sạn, cách đặt phòng và thanh toán. Bạn thử hỏi một trong các chủ đề đó nhé.</string>
     <string name="chat_emojis">Chọn biểu cảm</string>
     <string name="chat_attach">Đính kèm ảnh hoặc tệp</string>
     <string name="open_ai_assistant">Mở trợ lý AI</string>

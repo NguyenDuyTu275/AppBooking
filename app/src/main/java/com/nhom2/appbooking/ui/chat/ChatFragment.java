@@ -222,7 +222,7 @@ public class ChatFragment extends Fragment {
         assistantAttachmentName = null;
         assistantAttachmentIsImage = false;
         binding.textAssistantAttachment.setVisibility(View.GONE);
-        assistantAdapter.add(AssistantPreviewReplies.forQuestion(question), false);
+        assistantAdapter.add(getString(AssistantPreviewReplies.forQuestion(question)), false);
         scrollAssistantToBottom();
     }
 
