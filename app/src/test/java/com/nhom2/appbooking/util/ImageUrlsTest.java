@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class ImageUrlsTest {
 
-    private static final String API = "https://api.duytu205.id.vn/";
+    private static final String API = "https://webbooking-c5iu.onrender.com/";
 
     @Test
     public void keepsAbsoluteUrls() {
@@ -17,9 +17,9 @@ public class ImageUrlsTest {
 
     @Test
     public void prefixesRelativeUploadsWithTheBackend() {
-        assertEquals("https://api.duytu205.id.vn/uploads/rooms/x.jpg",
+        assertEquals("https://webbooking-c5iu.onrender.com/uploads/rooms/x.jpg",
                 ImageUrls.resolve("/uploads/rooms/x.jpg", API));
-        assertEquals("https://api.duytu205.id.vn/uploads/x.jpg", ImageUrls.resolve("uploads/x.jpg", API));
+        assertEquals("https://webbooking-c5iu.onrender.com/uploads/x.jpg", ImageUrls.resolve("uploads/x.jpg", API));
     }
 
     @Test

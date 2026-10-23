@@ -9,8 +9,8 @@ def localFile = rootProject.file('local.properties')
 if (localFile.exists()) {
     localFile.withInputStream { localProps.load(it) }
 }
-def apiBaseUrl = localProps.getProperty('api.baseUrl', 'https://api.duytu205.id.vn').replaceAll('/+$', '')
-def webBaseUrl = localProps.getProperty('web.baseUrl', 'https://duytu205.id.vn').replaceAll('/+$', '')
+def apiBaseUrl = localProps.getProperty('api.baseUrl', 'https://webbooking-c5iu.onrender.com').replaceAll('/+$', '')
+def webBaseUrl = localProps.getProperty('web.baseUrl', 'https://ript-1307-03-2026-nhom2-kthp.vercel.app').replaceAll('/+$', '')
 // OAuth client "Web" ma backend kiem tra (google.client-id). Client id la gia tri cong khai, khong phai bi mat.
 def googleWebClientId = localProps.getProperty('google.webClientId', '629111799618-99e15l0prujq2bqif30mtfr6eevlqk7s.apps.googleusercontent.com')
 

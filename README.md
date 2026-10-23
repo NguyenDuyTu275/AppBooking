@@ -5,8 +5,8 @@ App dùng chung backend với website WebBooking:
 
 | Thành phần | Địa chỉ |
 |---|---|
-| Backend (Spring Boot, Render) | https://api.duytu205.id.vn |
-| Website (React, Vercel) | https://duytu205.id.vn |
+| Backend (Spring Boot, Render) | https://webbooking-c5iu.onrender.com |
+| Website (React, Vercel) | https://ript-1307-03-2026-nhom2-kthp.vercel.app |
 | Repo backend + web | https://github.com/NguyenDuyTu275/WebBooking |
 
 ## Tính năng
@@ -46,7 +46,7 @@ app/src/main/java/com/nhom2/appbooking/
 2. **File → Open** → chọn thư mục project → chờ **Gradle Sync** xong.
 3. Chọn máy ảo (Device Manager) hoặc điện thoại bật USB debugging → bấm **Run ▶**.
 
-Mặc định app gọi backend tại `https://api.duytu205.id.vn` (dịch vụ trên Render) nên chạy được ngay.
+Mặc định app gọi backend trên Render nên chạy được ngay.
 
 ## Chạy với backend trên máy tính
 
