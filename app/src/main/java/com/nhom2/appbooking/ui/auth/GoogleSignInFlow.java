@@ -30,7 +30,7 @@ import com.nhom2.appbooking.ui.ApiCallback;
  * Đăng nhập bằng Google giống website: xin Google một ID token cấp cho OAuth client "Web" mà backend kiểm tra
  * (google.client-id), rồi gửi token đó lên /auth/google để nhận JWT.
  *
- * Google chỉ trả token khi tên gói (com.nhom2.appbooking) và SHA-1 của khóa ký app đã được khai báo là
+ * Google chỉ trả token khi tên gói (applicationId com.nhom2.booking) và SHA-1 của khóa ký app đã được khai báo là
  * OAuth client "Android" trong cùng Google Cloud project với client "Web".
  */
 final class GoogleSignInFlow {

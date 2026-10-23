@@ -19,7 +19,9 @@ android {
     compileSdk 37
 
     defaultConfig {
-        applicationId 'com.nhom2.appbooking'
+        // Trùng tên gói của app Kotlin cũ: OAuth client "Android" trên Google Cloud được khai báo cho
+        // com.nhom2.booking, đổi tên gói thì đăng nhập Google bị từ chối sau khi chọn tài khoản
+        applicationId 'com.nhom2.booking'
         minSdk 26
         targetSdk 37
         versionCode 1
