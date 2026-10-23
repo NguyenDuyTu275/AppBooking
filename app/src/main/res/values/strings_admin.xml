@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trang quan tri: cung cau chu voi muc admin trong frontend/src/i18n/locales/vi.ts cua web -->
+<resources>
+    <string name="admin_console">Admin Console · %1$s</string>
+    <string name="admin_open_website">Mở trang quản trị trên web</string>
+
+    <!-- Menu (sidebar tren web) -->
+    <string name="admin_menu_overview">Tổng quan</string>
+    <string name="admin_menu_users">Quản lý Người dùng</string>
+    <string name="admin_menu_hotels">Quản lý Khách sạn</string>
+    <string name="admin_menu_bookings">Quản lý Đặt phòng</string>
+    <string name="admin_menu_requests">Yêu cầu Đặt phòng</string>
+    <string name="admin_menu_reviews">Đánh giá</string>
+    <string name="admin_menu_chat">Hỗ trợ khách hàng</string>
+
+    <!-- Dung chung -->
+    <string name="admin_delete">Xóa</string>
+    <string name="admin_edit">Sửa</string>
+    <string name="admin_confirm">Xác nhận</string>
+    <string name="admin_cancel">Hủy</string>
+    <string name="admin_approve">Duyệt</string>
+    <string name="admin_reject">Từ chối</string>
+    <string name="admin_confirm_approve">Xác nhận duyệt</string>
+    <string name="admin_confirm_reject">Xác nhận từ chối</string>
+    <string name="admin_reason_required">Vui lòng nhập lý do từ chối</string>
+    <string name="admin_reason_prompt">Vui lòng nhập lý do từ chối để thông báo cho khách hàng:</string>
+    <string name="admin_filter_all">Tất cả</string>
+    <string name="admin_field_required">Vui lòng nhập %1$s</string>
+    <string name="admin_id">ID %1$d</string>
+
+    <!-- Trang thai -->
+    <string name="admin_status_pending">Chờ duyệt</string>
+    <string name="admin_status_confirmed">Đã duyệt</string>
+    <string name="admin_status_rejected">Từ chối</string>
+    <string name="admin_status_cancelled">Đã hủy</string>
+    <string name="admin_payment_unpaid">Chưa thanh toán</string>
+    <string name="admin_payment_paid">Đã thanh toán</string>
+    <string name="admin_payment_refunded">Đã hoàn tiền</string>
+
+    <!-- Tong quan -->
+    <string name="admin_overview_title">Tổng quan hệ thống</string>
+    <string name="admin_overview_export">Xuất Báo Cáo Excel</string>
+    <string name="admin_overview_export_success">Xuất báo cáo Excel thành công</string>
+    <string name="admin_overview_export_failed">Có lỗi xảy ra khi xuất báo cáo</string>
+    <string name="admin_overview_load_failed">Không thể tải dữ liệu thống kê</string>
+    <string name="admin_overview_total_revenue">Doanh thu đã thanh toán</string>
+    <string name="admin_overview_total_bookings">Tổng số Booking</string>
+    <string name="admin_overview_pending_bookings">Booking chờ duyệt</string>
+    <string name="admin_overview_pending_requests">Yêu cầu cần xử lý</string>
+    <string name="admin_overview_revenue_chart">Biểu đồ Doanh thu (6 tháng gần nhất)</string>
+    <string name="admin_overview_booking_ratio">Tỉ lệ Đặt phòng</string>
+    <string name="admin_overview_pending">Chờ duyệt</string>
+    <string name="admin_overview_confirmed">Đã xác nhận</string>
+    <string name="admin_overview_closed">Đã hủy / từ chối</string>
+    <string name="admin_overview_legend">%1$s: %2$d</string>
+    <string name="admin_overview_month_short">Th%1$d</string>
+    <string name="admin_overview_report_file">bookings_report_%1$s.xlsx</string>
+
+    <!-- Nguoi dung -->
+    <string name="admin_users_title">Danh sách người dùng</string>
+    <string name="admin_users_add">Thêm tài khoản</string>
+    <string name="admin_users_empty">Không có tài khoản nào</string>
+    <string name="admin_users_load_failed">Không thể lấy danh sách người dùng từ Server!</string>
+    <string name="admin_users_delete_title">Xác nhận xóa</string>
+    <string name="admin_users_delete_body">Bạn có chắc chắn muốn xóa người dùng này khỏi hệ thống không?</string>
+    <string name="admin_users_deleted">Đã xóa người dùng thành công!</string>
+    <string name="admin_users_updated">Cập nhật người dùng thành công!</string>
+    <string name="admin_users_created">Thêm người dùng mới thành công!</string>
+    <string name="admin_users_role">Vai trò</string>
+    <string name="admin_users_edit_title">Chỉnh sửa tài khoản</string>
+    <string name="admin_users_create_title">Thêm tài khoản mới</string>
+    <string name="admin_users_email_invalid">Email không hợp lệ!</string>
+    <string name="admin_role_user" translatable="false">USER</string>
+    <string name="admin_role_admin" translatable="false">ADMIN</string>
+
+    <!-- Dat phong -->
+    <string name="admin_bookings_empty">Không có booking nào</string>
+    <string name="admin_bookings_load_failed">Không thể tải danh sách booking</string>
+    <string name="admin_bookings_approved">Đã duyệt booking thành công</string>
+    <string name="admin_bookings_marked_paid">Đã đánh dấu thanh toán thành công</string>
+    <string name="admin_bookings_rejected">Đã từ chối booking</string>
+    <string name="admin_bookings_mark_paid">Đã thu tiền</string>
+    <string name="admin_bookings_reject_title">Từ chối Đặt phòng</string>
+    <string name="admin_bookings_reject_placeholder">Khách sạn đã hết phòng trống...</string>
+    <string name="admin_bookings_number">#%1$d</string>
+
+    <!-- Yeu cau -->
+    <string name="admin_requests_empty">Không có yêu cầu nào</string>
+    <string name="admin_requests_load_failed">Không thể tải danh sách yêu cầu</string>
+    <string name="admin_requests_approved">Đã duyệt yêu cầu thành công</string>
+    <string name="admin_requests_rejected">Đã từ chối yêu cầu</string>
+    <string name="admin_requests_type_cancel">Hủy Booking</string>
+    <string name="admin_requests_type_change_date">Đổi ngày</string>
+    <string name="admin_requests_status_pending">Chờ xử lý</string>
+    <string name="admin_requests_booking_code">Mã Booking #%1$d</string>
+    <string name="admin_requests_new_dates">Ngày mới: %1$s → %2$s</string>
+    <string name="admin_requests_reason">Lý do: %1$s</string>
+    <string name="admin_requests_no_reason">Không có lý do</string>
+    <string name="admin_requests_admin_response">Phản hồi (Admin): %1$s</string>
+    <string name="admin_requests_approve_title">Duyệt Yêu cầu</string>
+    <string name="admin_requests_reject_title">Từ chối Yêu cầu</string>
+    <string name="admin_requests_response_prompt">Phản hồi của bạn sẽ được gửi tới khách hàng (không bắt buộc nếu duyệt):</string>
+    <string name="admin_requests_reject_placeholder">Ví dụ: Khách sạn đã hết phòng trống ngày bạn muốn đổi...</string>
+    <string name="admin_requests_approve_placeholder">Ví dụ: Yêu cầu của bạn đã được chấp thuận...</string>
+
+    <!-- Khach san va phong -->
+    <string name="admin_hotels_add">Thêm khách sạn</string>
+    <string name="admin_hotels_empty">Chưa có khách sạn nào</string>
+    <string name="admin_hotels_load_failed">Không thể tải danh sách khách sạn</string>
+    <string name="admin_hotels_updated">Cập nhật khách sạn thành công</string>
+    <string name="admin_hotels_created">Thêm khách sạn thành công</string>
+    <string name="admin_hotels_delete_title">Xóa khách sạn</string>
+    <string name="admin_hotels_delete_body">Bạn có chắc chắn muốn xóa khách sạn này không? Hành động này không thể hoàn tác.</string>
+    <string name="admin_hotels_deleted">Đã xóa khách sạn</string>
+    <string name="admin_hotels_image_uploaded">Tải ảnh lên thành công</string>
+    <string name="admin_hotels_name">Tên khách sạn</string>
+    <string name="admin_hotels_name_placeholder">Ví dụ: InterContinental</string>
+    <string name="admin_hotels_city">Thành phố</string>
+    <string name="admin_hotels_city_placeholder">Hà Nội</string>
+    <string name="admin_hotels_address">Địa chỉ cụ thể</string>
+    <string name="admin_hotels_description">Mô tả</string>
+    <string name="admin_hotels_manage_rooms">Quản lý Phòng</string>
+    <string name="admin_hotels_image">Ảnh</string>
+    <string name="admin_hotels_upload">Tải lên</string>
+    <string name="admin_hotels_edit_title">Sửa thông tin khách sạn</string>
+    <string name="admin_hotels_create_title">Thêm khách sạn mới</string>
+    <string name="admin_hotels_no_rating">—</string>
+    <string name="admin_rooms_title">Quản lý phòng: %1$s</string>
+    <string name="admin_rooms_list_title">Danh sách phòng</string>
+    <string name="admin_rooms_add">Thêm phòng</string>
+    <string name="admin_rooms_empty">Khách sạn chưa có phòng nào</string>
+    <string name="admin_rooms_load_failed">Không thể tải danh sách phòng</string>
+    <string name="admin_rooms_updated">Cập nhật phòng thành công</string>
+    <string name="admin_rooms_created">Thêm phòng thành công</string>
+    <string name="admin_rooms_delete_title">Xóa phòng</string>
+    <string name="admin_rooms_delete_body">Bạn có chắc muốn xóa phòng này?</string>
+    <string name="admin_rooms_deleted">Đã xóa phòng</string>
+    <string name="admin_rooms_edit_title">Sửa thông tin phòng</string>
+    <string name="admin_rooms_create_title">Thêm phòng mới</string>
+    <string name="admin_rooms_name">Tên phòng</string>
+    <string name="admin_rooms_name_placeholder">P.101</string>
+    <string name="admin_rooms_type">Loại phòng</string>
+    <string name="admin_rooms_type_placeholder">Deluxe, Standard...</string>
+    <string name="admin_rooms_price">Giá mỗi đêm (VNĐ)</string>
+    <string name="admin_rooms_capacity">Sức chứa</string>
+    <string name="admin_rooms_quantity">Số lượng</string>
+    <string name="admin_rooms_quantity_hint">Đặt 0 để ngừng nhận đặt phòng mà vẫn giữ lịch sử</string>
+    <string name="admin_rooms_description">Mô tả phòng</string>
+    <string name="admin_rooms_description_placeholder">Điều hòa, Tủ lạnh...</string>
+    <string name="admin_rooms_counts">Sức chứa: %1$d · Số lượng: %2$d</string>
+    <string name="admin_rooms_price_invalid">Giá mỗi đêm phải từ 1 trở lên</string>
+    <string name="admin_rooms_capacity_invalid">Sức chứa phải từ 1 trở lên</string>
+    <string name="admin_rooms_quantity_invalid">Số lượng phải từ 0 trở lên</string>
+
+    <!-- Tai anh -->
+    <string name="admin_image_type_invalid">Chỉ nhận ảnh JPG, PNG, WEBP hoặc GIF</string>
+    <string name="admin_image_too_large">Ảnh lớn hơn 5MB, vui lòng chọn ảnh nhỏ hơn</string>
+    <string name="admin_image_read_failed">Không đọc được ảnh đã chọn</string>
+
+    <!-- Danh gia -->
+    <string name="admin_reviews_title">Đánh giá của khách</string>
+    <string name="admin_reviews_only_unanswered">Chỉ hiện đánh giá chưa trả lời</string>
+    <string name="admin_reviews_empty">Không có đánh giá nào</string>
+    <string name="admin_reviews_load_failed">Không thể tải danh sách đánh giá</string>
+    <string name="admin_reviews_reply_required">Vui lòng nhập nội dung phản hồi</string>
+    <string name="admin_reviews_replied">Đã gửi phản hồi</string>
+    <string name="admin_reviews_remove_title">Xóa phản hồi?</string>
+    <string name="admin_reviews_remove_body">Phản hồi của khách sạn cho đánh giá này sẽ bị xóa.</string>
+    <string name="admin_reviews_removed">Đã xóa phản hồi</string>
+    <string name="admin_reviews_no_comment">(không có nhận xét)</string>
+    <string name="admin_reviews_reply">Phản hồi: %1$s</string>
+    <string name="admin_reviews_answer">Trả lời</string>
+    <string name="admin_reviews_reply_title">Phản hồi đánh giá của %1$s</string>
+    <string name="admin_reviews_send">Gửi phản hồi</string>
+    <string name="admin_reviews_reply_placeholder">Phản hồi sẽ hiển thị công khai dưới đánh giá, đứng tên khách sạn.</string>
+    <string name="admin_reviews_score">%1$d/10</string>
+    <string name="admin_reviews_meta">%1$s · %2$s</string>
+
+    <!-- Chat ho tro -->
+    <string name="admin_chat_empty">Chưa có cuộc trò chuyện nào</string>
+    <string name="admin_chat_rooms_load_failed">Không thể tải danh sách hội thoại</string>
+    <string name="admin_chat_placeholder">Trả lời khách...</string>
+</resources>

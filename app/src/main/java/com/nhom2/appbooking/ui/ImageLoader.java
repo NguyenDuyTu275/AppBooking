@@ -23,6 +23,14 @@ public final class ImageLoader {
                 .into(view);
     }
 
+    /** Ảnh đại diện: cắt tròn như avatar trên web. */
+    public static void loadAvatar(ImageView view, String url) {
+        Glide.with(view)
+                .load(ImageUrls.resolve(url, BuildConfig.API_BASE_URL))
+                .circleCrop()
+                .into(view);
+    }
+
     /** Ảnh cần giữ nguyên tỉ lệ (mã QR, logo ngân hàng). */
     public static void loadFit(ImageView view, String url) {
         Glide.with(view)

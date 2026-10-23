@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vien o nhap: xam nhu web, chuyen xanh khi dang nhap lieu -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/link" android:state_focused="true" />
+    <item android:color="@color/link" android:state_hovered="true" />
+    <item android:color="@color/divider" android:state_enabled="false" />
+    <item android:color="@color/border_dark" />
+</selector>

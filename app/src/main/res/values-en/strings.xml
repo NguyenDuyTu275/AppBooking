@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English strings, worded like frontend/src/i18n/locales/en.ts of the web -->
+<resources>
+    <string name="app_name">BookingApp</string>
+    <string name="brand_lead">Booking</string>
+    <string name="brand_accent">App</string>
+
+    <!-- Common -->
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_network">Cannot reach the server. Check your connection and try again.</string>
+    <string name="session_expired">Your session has expired. Please sign in again.</string>
+    <string name="copied">%1$s copied!</string>
+    <string name="ok">OK</string>
+    <string name="no">No</string>
+    <string name="back">Back</string>
+    <string name="no_browser">No browser found to open this page</string>
+
+    <!-- Sign in / sign up -->
+    <string name="brand">BookingApp</string>
+    <string name="login_subtitle">Welcome back to BookingApp</string>
+    <string name="login_title">Sign in</string>
+    <string name="username">Username</string>
+    <string name="username_placeholder">Enter your username</string>
+    <string name="username_placeholder_register">Choose a username</string>
+    <string name="password">Password</string>
+    <string name="password_placeholder">Enter your password</string>
+    <string name="password_policy">Use 8-72 characters with upper and lower case letters, a number, a special character and no spaces.</string>
+    <string name="email">Email address</string>
+    <string name="email_placeholder">Enter your email address</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="confirm_password_placeholder">Enter your password again</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login_button">Sign in</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="register_free">Sign up for free</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="or_sign_in_with">or sign in with</string>
+    <string name="or_register_with">or sign up with</string>
+    <string name="agree_sign_in">By signing in, you agree to our Terms of use and Privacy policy.</string>
+    <string name="agree_register">By signing up, you agree to our Terms of use and Privacy policy.</string>
+    <string name="fill_all_fields">Please fill in all fields</string>
+    <string name="register_title">Create an account</string>
+    <string name="register_subtitle">Create your BookingApp account</string>
+    <string name="register_button">Sign up</string>
+    <string name="password_mismatch">Passwords do not match!</string>
+    <string name="otp_sent">An OTP was sent to %1$s. Enter it to finish signing up.</string>
+    <string name="otp_hint">OTP code</string>
+    <string name="otp_placeholder">Enter the 6-digit code</string>
+    <string name="verify_button">Verify</string>
+    <string name="register_success">Account created! Please sign in.</string>
+
+    <!-- Google sign-in -->
+    <string name="google_sign_in">Sign in with Google</string>
+    <string name="google_failed">Google sign-in failed</string>
+    <string name="google_no_account">There is no Google account on this device. Add one in Settings and try again.</string>
+    <string name="google_unavailable">Google sign-in is not available on this device. Please use your username and password.</string>
+
+    <!-- Tabs -->
+    <string name="tab_home">Hotels</string>
+    <string name="tab_bookings">My bookings</string>
+    <string name="tab_chat">Support</string>
+    <string name="tab_account">Account</string>
+
+    <!-- Hotel list -->
+    <string name="hero_title">Find your next stay</string>
+    <string name="hero_subtitle">Search deals on hotels, guesthouses and much more...</string>
+    <string name="search_hint">Hotel name or city</string>
+    <string name="search_button">Search</string>
+    <string name="featured_title">Featured hotels</string>
+    <string name="featured_subtitle">Sorted by guest review score</string>
+    <string name="search_results_title">Search results</string>
+    <string name="search_results_count">%1$d properties found</string>
+    <string name="no_hotels">No matching hotels</string>
+    <string name="location_pending">Location coming soon</string>
+    <string name="starting_from">Starting from</string>
+    <string name="contact_for_price">Contact us</string>
+    <string name="reviews_count">%1$d reviews</string>
+    <string name="rating_na">N/A</string>
+    <string name="rating_exceptional">Exceptional</string>
+    <string name="rating_very_good">Very good</string>
+    <string name="rating_good">Good</string>
+    <string name="rating_okay">Okay</string>
+    <string name="rating_average">Average</string>
+    <string name="rating_none">No reviews yet</string>
+
+    <!-- Hotel details -->
+    <string name="rooms">Availability</string>
+    <string name="reviews">Guest reviews</string>
+    <string name="no_reviews">No reviews yet.</string>
+    <string name="room_info">%1$s · %2$d guests</string>
+    <string name="per_night">%1$s / night</string>
+    <string name="book_room">Book</string>
+    <string name="hotel_reply">Hotel response: %1$s</string>
+    <string name="show_map">Show map</string>
+
+    <!-- Booking -->
+    <string name="booking_title">Book a room</string>
+    <string name="choose_dates">Choose check-in – check-out</string>
+    <string name="check_in">Check-in</string>
+    <string name="check_out">Check-out</string>
+    <string name="nights">Nights</string>
+    <string name="total">Total</string>
+    <string name="confirm_booking">Confirm booking</string>
+    <string name="pick_dates_first">Please choose check-in and check-out dates (at least 1 night)</string>
+    <string name="booking_created">Booking created. Please pay to complete it.</string>
+    <string name="nights_value">%1$d nights</string>
+    <string name="not_selected">Not selected</string>
+
+    <!-- Payment -->
+    <string name="payment_title">Payment</string>
+    <string name="payment_checking">Waiting for your payment… checked automatically every few seconds</string>
+    <string name="method_qr">Scan QR code</string>
+    <string name="method_bank_app">Banking app</string>
+    <string name="qr_hint">Open any banking app and scan this code</string>
+    <string name="bank_app_desc">Choose your bank: the app opens so you can transfer. Apps labelled \"Fills details\" come with the account number, amount and transfer note already filled in; you only confirm and enter your security code.</string>
+    <string name="choose_bank">Choose bank</string>
+    <string name="transfer_info">Transfer details</string>
+    <string name="bank">Bank</string>
+    <string name="account_number">Account number</string>
+    <string name="account_name">Account holder</string>
+    <string name="transfer_content">Transfer note</string>
+    <string name="amount">Amount to transfer</string>
+    <string name="auto_confirm_note">Once the transfer goes through, the booking confirms itself within 1-3 minutes.</string>
+    <string name="pay_later">Pay later</string>
+    <string name="payment_success_title">Payment received</string>
+    <string name="payment_success_msg">Booking %1$s has been paid. Thank you!</string>
+    <string name="bank_picker_title">Choose a banking app</string>
+    <string name="search_bank">Search bank…</string>
+    <string name="autofill">Fills details</string>
+    <string name="open_only">Opens app only</string>
+    <string name="bank_list_failed">Could not load the bank list. Please use the QR code.</string>
+    <string name="manual_fill">This app cannot fill in the transfer. The note \"%1$s\" was copied: send to account %2$s and paste exactly this note.</string>
+    <string name="no_app_to_open">Could not open the banking app. Please use the QR code.</string>
+
+    <!-- My bookings -->
+    <string name="no_bookings">You have not made any bookings.</string>
+    <string name="booking_code">Booking %1$s</string>
+    <string name="pay_now">Pay</string>
+    <string name="cancel_booking">Cancel</string>
+    <string name="cancel_confirm_title">Cancel this booking?</string>
+    <string name="cancel_confirm_msg">Are you sure you want to cancel booking %1$s?</string>
+    <string name="cancelled">Booking cancelled successfully!</string>
+    <string name="status_pending">Pending</string>
+    <string name="status_confirmed">Confirmed</string>
+    <string name="status_cancelled">Cancelled</string>
+    <string name="status_rejected">Rejected</string>
+    <string name="pay_paid">Paid</string>
+    <string name="pay_unpaid">Unpaid</string>
+    <string name="pay_refunded">Refunded</string>
+    <string name="date_range">%1$s → %2$s</string>
+
+    <!-- Support chat -->
+    <string name="chat_empty">Ask us anything about bookings, payment or hotels. We will reply here.</string>
+    <string name="chat_hint">Type a message…</string>
+    <string name="send">Send</string>
+
+    <!-- Account -->
+    <string name="role_admin">Administrator</string>
+    <string name="role_user">Guest</string>
+    <string name="open_website">Open the website</string>
+    <string name="logout">Log out</string>
+    <string name="language">Language</string>
+    <string name="switch_to_other_language">Tiếng Việt</string>
+
+    <!-- Wishlist -->
+    <string name="wishlist_title">Wishlist</string>
+    <string name="wishlist_saved_count">%1$d saved hotel(s)</string>
+    <string name="wishlist_empty_title">Save it for later</string>
+    <string name="wishlist_empty_body">Save the hotels you like so it is easy to pick where to stay on your next trip.</string>
+    <string name="wishlist_explore">Explore now</string>
+    <string name="wishlist_clear_all">Clear all</string>
+    <string name="wishlist_clear_confirm">Remove all saved hotels?</string>
+    <string name="wishlist_add">Add to wishlist</string>
+    <string name="wishlist_remove">Remove from wishlist</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">My notifications</string>
+    <string name="notifications_title_count">My notifications (%1$d)</string>
+    <string name="notifications_empty">No notifications</string>
+    <string name="notifications_delete">Delete notification</string>
+    <string name="notifications_mark_all">Mark all as read</string>
+    <string name="notifications_received_at">Received: %1$s</string>
+    <string name="time_just_now">Just now</string>
+    <string name="time_minutes">%1$d min ago</string>
+    <string name="time_hours">%1$d h ago</string>
+    <string name="time_one_day">A day ago</string>
+    <string name="time_days">%1$d days ago</string>
+    <string name="close">Close</string>
+
+    <!-- Profile -->
+    <string name="profile_my">My profile</string>
+    <string name="profile_title">Manage account</string>
+    <string name="profile_load_failed">Could not load your profile.</string>
+    <string name="profile_username_locked">Your username cannot be changed.</string>
+    <string name="profile_email_hint">A new email is only saved after you enter the OTP code sent to that address.</string>
+    <string name="profile_send_code">Send code</string>
+    <string name="profile_otp_sent">An OTP code was sent to %1$s. Please check your inbox.</string>
+    <string name="profile_otp_sent_to">OTP code sent to %1$s</string>
+    <string name="profile_confirm_email">Confirm email change</string>
+    <string name="profile_email_changed">Email changed successfully! 🎉</string>
+    <string name="profile_new_password">New password</string>
+    <string name="profile_change_password">Change password</string>
+    <string name="profile_password_changed">Password changed successfully! 🎉</string>
+    <string name="profile_change_avatar">Tap to change your avatar</string>
+    <string name="profile_avatar_updated">Avatar updated</string>
+    <string name="profile_saved_hotels">Saved hotels</string>
+    <string name="profile_no_email">No email set</string>
+    <string name="otp_required">Please enter the OTP!</string>
+    <string name="email_invalid">Invalid email!</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Forgot password -->
+    <string name="forgot_title">Forgot password</string>
+    <string name="forgot_step0_subtitle">Enter your username to receive a recovery code</string>
+    <string name="forgot_step1_subtitle">Enter the OTP sent to %1$s and choose a new password</string>
+    <string name="forgot_step_password">New password</string>
+    <string name="forgot_step_done">Done</string>
+    <string name="forgot_send_code">Send code</string>
+    <string name="forgot_code_sent">A code was sent to the linked email</string>
+    <string name="forgot_otp_label">OTP code</string>
+    <string name="forgot_otp_placeholder">Enter the 6-digit OTP</string>
+    <string name="forgot_otp_invalid">Invalid OTP!</string>
+    <string name="forgot_reset_submit">Confirm &amp; reset password</string>
+    <string name="forgot_reset_success">Password reset!</string>
+    <string name="forgot_back">Back</string>
+    <string name="forgot_success_title">Password changed!</string>
+    <string name="forgot_success_body">Your password has been updated. You can sign in with it right away.</string>
+    <string name="forgot_login_now">Sign in now</string>
+    <string name="forgot_back_to_login">← Back to sign in</string>
+
+    <!-- Write a review -->
+    <string name="review_share_title">✍️ Share your experience</string>
+    <string name="review_score_label">Score (1-10):</string>
+    <string name="review_comment_placeholder">What did you think of the property?</string>
+    <string name="review_submit">Post review</string>
+    <string name="review_pick_rating">Please pick a score!</string>
+    <string name="review_enter_comment">Please write a comment!</string>
+    <string name="review_submitted">🎉 Your review has been posted!</string>
+    <string name="review_selected_score">%1$d/10 · %2$s</string>
+    <string name="review_star">Score %1$d</string>
+    <string name="review_guest">Guest</string>
+
+    <!-- Invoice -->
+    <string name="invoice">Invoice</string>
+    <string name="invoice_file">invoice-%1$d.pdf</string>
+    <string name="invoice_saved">Invoice saved</string>
+    <string name="invoice_failed">Could not download the invoice</string>
+    <string name="invoice_open">Open</string>
+    <string name="no_pdf_viewer">No PDF viewer app on this device</string>
+</resources>

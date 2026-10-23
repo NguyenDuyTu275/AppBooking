@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AppBooking</string>
+    <!-- Tên thương hiệu: đổi tên chỉ cần sửa brand_lead / brand_accent và các chuỗi có chữ BookingApp bên dưới -->
+    <string name="app_name">BookingApp</string>
+    <string name="brand_lead">Booking</string>
+    <string name="brand_accent">App</string>
 
     <!-- Chung -->
     <string name="error_generic">Có lỗi xảy ra, vui lòng thử lại</string>
@@ -10,26 +13,47 @@
     <string name="ok">OK</string>
     <string name="no">Không</string>
     <string name="back">Quay lại</string>
+    <string name="no_browser">Không tìm thấy trình duyệt để mở trang này</string>
 
-    <!-- Đăng nhập / đăng ký -->
-    <string name="brand">Booking.com</string>
-    <string name="login_subtitle">Đặt phòng khách sạn nhanh chóng</string>
+    <!-- Đăng nhập / đăng ký: cùng câu chữ với trang /login và /register của web -->
+    <string name="brand">BookingApp</string>
+    <string name="login_subtitle">Chào mừng bạn quay lại BookingApp</string>
     <string name="login_title">Đăng nhập</string>
     <string name="username">Tên đăng nhập</string>
+    <string name="username_placeholder">Nhập tên đăng nhập</string>
+    <string name="username_placeholder_register">Nhập tên đăng nhập của bạn</string>
     <string name="password">Mật khẩu</string>
-    <string name="email">Email</string>
-    <string name="confirm_password">Nhập lại mật khẩu</string>
+    <string name="password_placeholder">Nhập mật khẩu</string>
+    <string name="password_policy">Mật khẩu phải có 8-72 ký tự, gồm chữ hoa, chữ thường, số, ký tự đặc biệt và không có khoảng trắng.</string>
+    <string name="email">Địa chỉ email</string>
+    <string name="email_placeholder">Nhập địa chỉ email của bạn</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="confirm_password_placeholder">Nhập lại mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
     <string name="login_button">Đăng nhập</string>
-    <string name="go_register">Chưa có tài khoản? Đăng ký</string>
+    <string name="no_account">Chưa có tài khoản?</string>
+    <string name="register_free">Đăng ký miễn phí</string>
+    <string name="have_account">Đã có tài khoản?</string>
+    <string name="or_sign_in_with">hoặc đăng nhập với</string>
+    <string name="or_register_with">hoặc đăng ký với</string>
+    <string name="agree_sign_in">Bằng cách đăng nhập, bạn đồng ý với Điều khoản sử dụng và Chính sách bảo mật của chúng tôi.</string>
+    <string name="agree_register">Bằng cách đăng ký, bạn đồng ý với Điều khoản sử dụng và Chính sách bảo mật của chúng tôi.</string>
     <string name="fill_all_fields">Vui lòng nhập đầy đủ thông tin</string>
-    <string name="register_title">Tạo tài khoản</string>
-    <string name="register_button">Đăng ký</string>
+    <string name="register_title">Đăng ký tài khoản</string>
+    <string name="register_subtitle">Tạo tài khoản BookingApp của bạn</string>
+    <string name="register_button">Đăng ký ngay</string>
     <string name="password_mismatch">Mật khẩu nhập lại không khớp</string>
     <string name="otp_sent">Mã OTP đã được gửi tới %1$s. Nhập mã để hoàn tất đăng ký.</string>
     <string name="otp_hint">Mã OTP</string>
+    <string name="otp_placeholder">Nhập mã 6 số</string>
     <string name="verify_button">Xác nhận</string>
     <string name="register_success">Đăng ký thành công! Hãy đăng nhập.</string>
-    <string name="back_to_login">Đã có tài khoản? Đăng nhập</string>
+
+    <!-- Đăng nhập bằng Google -->
+    <string name="google_sign_in">Đăng nhập bằng Google</string>
+    <string name="google_failed">Đăng nhập Google thất bại</string>
+    <string name="google_no_account">Máy chưa có tài khoản Google. Hãy thêm tài khoản trong Cài đặt rồi thử lại.</string>
+    <string name="google_unavailable">Không đăng nhập bằng Google được trên máy này. Hãy dùng tên đăng nhập và mật khẩu.</string>
 
     <!-- Các tab -->
     <string name="tab_home">Khách sạn</string>
@@ -37,12 +61,27 @@
     <string name="tab_chat">Hỗ trợ</string>
     <string name="tab_account">Tài khoản</string>
 
-    <!-- Danh sách khách sạn -->
-    <string name="search_hint">Tìm theo tên khách sạn hoặc thành phố</string>
+    <!-- Danh sách khách sạn: cùng câu chữ với trang chủ web -->
+    <string name="hero_title">Tìm chỗ nghỉ tiếp theo của bạn</string>
+    <string name="hero_subtitle">Tìm kiếm ưu đãi khách sạn, nhà nghỉ và nhiều hơn nữa...</string>
+    <string name="search_hint">Tên khách sạn hoặc thành phố</string>
+    <string name="search_button">Tìm</string>
+    <string name="featured_title">Khách sạn nổi bật</string>
+    <string name="featured_subtitle">Xếp theo điểm đánh giá của khách</string>
+    <string name="search_results_title">Kết quả tìm kiếm</string>
+    <string name="search_results_count">%1$d khách sạn phù hợp</string>
     <string name="no_hotels">Không có khách sạn phù hợp</string>
-    <string name="price_from">Từ %1$s / đêm</string>
+    <string name="location_pending">Đang cập nhật</string>
+    <string name="starting_from">Bắt đầu từ</string>
+    <string name="contact_for_price">Liên hệ</string>
     <string name="reviews_count">%1$d đánh giá</string>
-    <string name="no_rating">Chưa có điểm</string>
+    <string name="rating_na">N/A</string>
+    <string name="rating_exceptional">Xuất sắc</string>
+    <string name="rating_very_good">Rất tốt</string>
+    <string name="rating_good">Tốt</string>
+    <string name="rating_okay">Ổn</string>
+    <string name="rating_average">Trung bình</string>
+    <string name="rating_none">Chưa đánh giá</string>
 
     <!-- Chi tiết khách sạn -->
     <string name="rooms">Phòng trống</string>
@@ -52,6 +91,7 @@
     <string name="per_night">%1$s / đêm</string>
     <string name="book_room">Đặt phòng</string>
     <string name="hotel_reply">Khách sạn phản hồi: %1$s</string>
+    <string name="show_map">Hiển thị bản đồ</string>
 
     <!-- Đặt phòng -->
     <string name="booking_title">Đặt phòng</string>
@@ -119,4 +159,94 @@
     <string name="role_user">Khách hàng</string>
     <string name="open_website">Mở trang web</string>
     <string name="logout">Đăng xuất</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="language_vi" translatable="false">VI</string>
+    <string name="language_en" translatable="false">EN</string>
+    <string name="switch_to_other_language">English</string>
+
+    <!-- Yêu thích (trang /wishlist của web) -->
+    <string name="wishlist_title">Danh sách yêu thích</string>
+    <string name="wishlist_saved_count">%1$d khách sạn đã lưu</string>
+    <string name="wishlist_empty_title">Lưu lại để xem sau</string>
+    <string name="wishlist_empty_body">Lưu lại những khách sạn bạn thích để dễ dàng quyết định nơi lưu trú cho chuyến đi tiếp theo.</string>
+    <string name="wishlist_explore">Khám phá ngay</string>
+    <string name="wishlist_clear_all">Xóa tất cả</string>
+    <string name="wishlist_clear_confirm">Xóa tất cả khách sạn đã lưu?</string>
+    <string name="wishlist_add">Thêm vào danh sách yêu thích</string>
+    <string name="wishlist_remove">Bỏ khỏi danh sách yêu thích</string>
+
+    <!-- Thông báo (chuông trên header của web) -->
+    <string name="notifications_title">Thông báo của tôi</string>
+    <string name="notifications_title_count">Thông báo của tôi (%1$d)</string>
+    <string name="notifications_empty">Không có thông báo nào</string>
+    <string name="notifications_delete">Xóa thông báo</string>
+    <string name="notifications_mark_all">Đánh dấu tất cả đã đọc</string>
+    <string name="notifications_received_at">Nhận lúc: %1$s</string>
+    <string name="time_just_now">Vừa xong</string>
+    <string name="time_minutes">%1$d phút trước</string>
+    <string name="time_hours">%1$d giờ trước</string>
+    <string name="time_one_day">Một ngày trước</string>
+    <string name="time_days">%1$d ngày trước</string>
+    <string name="close">Đóng</string>
+
+    <!-- Hồ sơ (trang /profile của web) -->
+    <string name="profile_my">Hồ sơ của tôi</string>
+    <string name="profile_title">Quản lý tài khoản</string>
+    <string name="profile_load_failed">Không thể tải hồ sơ.</string>
+    <string name="profile_username_locked">Tên đăng nhập không thể thay đổi.</string>
+    <string name="profile_email_hint">Email mới chỉ được lưu sau khi bạn nhập mã OTP gửi tới địa chỉ đó.</string>
+    <string name="profile_send_code">Nhận mã xác nhận</string>
+    <string name="profile_otp_sent">Đã gửi mã OTP tới %1$s. Vui lòng kiểm tra hộp thư.</string>
+    <string name="profile_otp_sent_to">Mã OTP đã gửi tới %1$s</string>
+    <string name="profile_confirm_email">Xác nhận đổi email</string>
+    <string name="profile_email_changed">Đổi email thành công! 🎉</string>
+    <string name="profile_new_password">Mật khẩu mới</string>
+    <string name="profile_change_password">Đổi mật khẩu</string>
+    <string name="profile_password_changed">Đổi mật khẩu thành công! 🎉</string>
+    <string name="profile_change_avatar">Nhấn để đổi ảnh đại diện</string>
+    <string name="profile_avatar_updated">Đã cập nhật ảnh đại diện</string>
+    <string name="profile_saved_hotels">Khách sạn đã lưu</string>
+    <string name="profile_no_email">Chưa cập nhật email</string>
+    <string name="otp_required">Vui lòng nhập mã OTP!</string>
+    <string name="email_invalid">Email không hợp lệ!</string>
+    <string name="cancel">Hủy</string>
+
+    <!-- Quên mật khẩu (trang /forgot-password của web) -->
+    <string name="forgot_title">Quên mật khẩu</string>
+    <string name="forgot_step0_subtitle">Nhập tên đăng nhập để nhận mã khôi phục mật khẩu</string>
+    <string name="forgot_step1_subtitle">Nhập mã OTP đã gửi đến %1$s và tạo mật khẩu mới</string>
+    <string name="forgot_step_password">Tạo mật khẩu</string>
+    <string name="forgot_step_done">Hoàn tất</string>
+    <string name="forgot_send_code">Nhận mã xác nhận</string>
+    <string name="forgot_code_sent">Mã xác nhận đã được gửi đến email liên kết</string>
+    <string name="forgot_otp_label">Mã xác nhận OTP</string>
+    <string name="forgot_otp_placeholder">Nhập mã OTP (6 số)</string>
+    <string name="forgot_otp_invalid">Mã OTP không hợp lệ!</string>
+    <string name="forgot_reset_submit">Xác nhận &amp; Đặt lại mật khẩu</string>
+    <string name="forgot_reset_success">Đặt lại mật khẩu thành công!</string>
+    <string name="forgot_back">Quay lại</string>
+    <string name="forgot_success_title">Đổi mật khẩu thành công!</string>
+    <string name="forgot_success_body">Mật khẩu của bạn đã được cập nhật an toàn. Bạn có thể sử dụng mật khẩu mới để đăng nhập ngay bây giờ.</string>
+    <string name="forgot_login_now">Đăng nhập ngay</string>
+    <string name="forgot_back_to_login">← Quay lại đăng nhập</string>
+
+    <!-- Viết đánh giá (trang đánh giá khách sạn của web) -->
+    <string name="review_share_title">✍️ Chia sẻ trải nghiệm của bạn</string>
+    <string name="review_score_label">Điểm đánh giá (1-10):</string>
+    <string name="review_comment_placeholder">Nhận xét của bạn về chỗ nghỉ...</string>
+    <string name="review_submit">Gửi đánh giá</string>
+    <string name="review_pick_rating">Vui lòng chọn điểm đánh giá!</string>
+    <string name="review_enter_comment">Vui lòng nhập nhận xét!</string>
+    <string name="review_submitted">🎉 Đánh giá của bạn đã được gửi thành công!</string>
+    <string name="review_selected_score">%1$d/10 · %2$s</string>
+    <string name="review_star">Điểm %1$d</string>
+    <string name="review_guest">Khách</string>
+
+    <!-- Hóa đơn (nút "Hóa đơn" ở Đặt chỗ của tôi trên web) -->
+    <string name="invoice">Hóa đơn</string>
+    <string name="invoice_file">hoa-don-%1$d.pdf</string>
+    <string name="invoice_saved">Đã lưu hóa đơn</string>
+    <string name="invoice_failed">Không thể tải hóa đơn</string>
+    <string name="invoice_open">Mở</string>
+    <string name="no_pdf_viewer">Không có ứng dụng xem PDF trên máy</string>
 </resources>

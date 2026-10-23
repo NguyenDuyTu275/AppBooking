@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The doanh thu chuyen sac xanh la -> xanh duong nhu the dau tien o trang Tong quan cua web -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="315"
+        android:endColor="@color/stat_revenue_bg_end"
+        android:startColor="@color/stat_revenue_bg_start" />
+    <corners android:radius="8dp" />
+    <stroke android:width="1dp" android:color="@color/divider" />
+</shape>

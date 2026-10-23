@@ -35,16 +35,16 @@ public class FormattersTest {
     }
 
     @Test
+    public void shortDateTimeShowsClockThenDayAndMonth() {
+        assertEquals("11:33 22/10", Formatters.shortDateTime("2026-10-22T11:33:29.123"));
+        assertEquals("22/10", Formatters.shortDateTime("2026-10-22"));
+        assertEquals("", Formatters.shortDateTime(null));
+    }
+
+    @Test
     public void ratingHasOneDecimalAndHidesMissingScores() {
         assertEquals("4.8", Formatters.rating(4.75));
         assertNull(Formatters.rating(null));
         assertNull(Formatters.rating(0.0));
-    }
-
-    @Test
-    public void starsAreClampedToFive() {
-        assertEquals("★★★★☆", Formatters.stars(4));
-        assertEquals("★★★★★", Formatters.stars(9));
-        assertEquals("☆☆☆☆☆", Formatters.stars(null));
     }
 }

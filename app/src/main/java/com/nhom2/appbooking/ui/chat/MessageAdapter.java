@@ -18,10 +18,21 @@ import com.nhom2.appbooking.util.Formatters;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Bong bóng chat: tin của khách bên phải (xanh), tin của nhân viên bên trái (trắng). */
+/** Bong bóng chat: tin của người đang xem bên phải (xanh), tin của phía bên kia bên trái (trắng). */
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> {
 
     private final List<SupportMessage> messages = new ArrayList<>();
+    private final boolean viewerIsAdmin;
+
+    /** Màn chat của khách. */
+    public MessageAdapter() {
+        this(false);
+    }
+
+    /** @param viewerIsAdmin true ở màn chat của admin: tin của nhân viên là "của mình". */
+    public MessageAdapter(boolean viewerIsAdmin) {
+        this.viewerIsAdmin = viewerIsAdmin;
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     public void submit(List<SupportMessage> items) {
@@ -41,7 +52,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
         SupportMessage message = messages.get(position);
         ItemMessageBinding b = holder.binding;
         Context context = b.getRoot().getContext();
-        boolean mine = !message.fromAdmin;
+        boolean mine = message.fromAdmin == viewerIsAdmin;
 
         b.container.setGravity(mine ? Gravity.END : Gravity.START);
         b.bubble.setBackgroundResource(mine ? R.drawable.bg_bubble_me : R.drawable.bg_bubble_admin);

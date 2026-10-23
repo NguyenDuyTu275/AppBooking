@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Admin console, worded like the admin section of frontend/src/i18n/locales/en.ts -->
+<resources>
+    <string name="admin_console">Admin Console · %1$s</string>
+    <string name="admin_open_website">Open the admin site on the web</string>
+
+    <!-- Menu -->
+    <string name="admin_menu_overview">Overview</string>
+    <string name="admin_menu_users">Users</string>
+    <string name="admin_menu_hotels">Hotels</string>
+    <string name="admin_menu_bookings">Bookings</string>
+    <string name="admin_menu_requests">Booking requests</string>
+    <string name="admin_menu_reviews">Reviews</string>
+    <string name="admin_menu_chat">Customer support</string>
+
+    <!-- Common -->
+    <string name="admin_delete">Delete</string>
+    <string name="admin_edit">Edit</string>
+    <string name="admin_confirm">Confirm</string>
+    <string name="admin_cancel">Cancel</string>
+    <string name="admin_approve">Approve</string>
+    <string name="admin_reject">Reject</string>
+    <string name="admin_confirm_approve">Confirm approval</string>
+    <string name="admin_confirm_reject">Confirm rejection</string>
+    <string name="admin_reason_required">Please enter a reason for rejecting</string>
+    <string name="admin_reason_prompt">Please enter the reason for rejecting, it will be sent to the guest:</string>
+    <string name="admin_filter_all">All</string>
+    <string name="admin_field_required">Please enter %1$s</string>
+    <string name="admin_id">ID %1$d</string>
+
+    <!-- Status -->
+    <string name="admin_status_pending">Pending</string>
+    <string name="admin_status_confirmed">Approved</string>
+    <string name="admin_status_rejected">Rejected</string>
+    <string name="admin_status_cancelled">Cancelled</string>
+    <string name="admin_payment_unpaid">Unpaid</string>
+    <string name="admin_payment_paid">Paid</string>
+    <string name="admin_payment_refunded">Refunded</string>
+
+    <!-- Overview -->
+    <string name="admin_overview_title">System overview</string>
+    <string name="admin_overview_export">Export Excel report</string>
+    <string name="admin_overview_export_success">Excel report exported</string>
+    <string name="admin_overview_export_failed">Could not export the report</string>
+    <string name="admin_overview_load_failed">Could not load statistics</string>
+    <string name="admin_overview_total_revenue">Paid revenue</string>
+    <string name="admin_overview_total_bookings">Total bookings</string>
+    <string name="admin_overview_pending_bookings">Pending bookings</string>
+    <string name="admin_overview_pending_requests">Requests to handle</string>
+    <string name="admin_overview_revenue_chart">Revenue (last 6 months)</string>
+    <string name="admin_overview_booking_ratio">Booking ratio</string>
+    <string name="admin_overview_pending">Pending</string>
+    <string name="admin_overview_confirmed">Confirmed</string>
+    <string name="admin_overview_closed">Cancelled / rejected</string>
+    <string name="admin_overview_legend">%1$s: %2$d</string>
+    <string name="admin_overview_month_short">M%1$d</string>
+    <string name="admin_overview_report_file">bookings_report_%1$s.xlsx</string>
+
+    <!-- Users -->
+    <string name="admin_users_title">Users</string>
+    <string name="admin_users_add">Add account</string>
+    <string name="admin_users_empty">No accounts</string>
+    <string name="admin_users_load_failed">Could not load users from the server!</string>
+    <string name="admin_users_delete_title">Confirm deletion</string>
+    <string name="admin_users_delete_body">Are you sure you want to delete this user from the system?</string>
+    <string name="admin_users_deleted">User deleted!</string>
+    <string name="admin_users_updated">User updated!</string>
+    <string name="admin_users_created">User created!</string>
+    <string name="admin_users_role">Role</string>
+    <string name="admin_users_edit_title">Edit account</string>
+    <string name="admin_users_create_title">New account</string>
+    <string name="admin_users_email_invalid">Invalid email!</string>
+
+    <!-- Bookings -->
+    <string name="admin_bookings_empty">No bookings</string>
+    <string name="admin_bookings_load_failed">Could not load bookings</string>
+    <string name="admin_bookings_approved">Booking approved</string>
+    <string name="admin_bookings_marked_paid">Marked as paid</string>
+    <string name="admin_bookings_rejected">Booking rejected</string>
+    <string name="admin_bookings_mark_paid">Payment received</string>
+    <string name="admin_bookings_reject_title">Reject booking</string>
+    <string name="admin_bookings_reject_placeholder">The hotel is fully booked...</string>
+    <string name="admin_bookings_number">#%1$d</string>
+
+    <!-- Requests -->
+    <string name="admin_requests_empty">No requests</string>
+    <string name="admin_requests_load_failed">Could not load requests</string>
+    <string name="admin_requests_approved">Request approved</string>
+    <string name="admin_requests_rejected">Request rejected</string>
+    <string name="admin_requests_type_cancel">Cancel booking</string>
+    <string name="admin_requests_type_change_date">Change dates</string>
+    <string name="admin_requests_status_pending">Pending</string>
+    <string name="admin_requests_booking_code">Booking #%1$d</string>
+    <string name="admin_requests_new_dates">New dates: %1$s → %2$s</string>
+    <string name="admin_requests_reason">Reason: %1$s</string>
+    <string name="admin_requests_no_reason">No reason given</string>
+    <string name="admin_requests_admin_response">Admin response: %1$s</string>
+    <string name="admin_requests_approve_title">Approve request</string>
+    <string name="admin_requests_reject_title">Reject request</string>
+    <string name="admin_requests_response_prompt">Your response will be sent to the guest (optional when approving):</string>
+    <string name="admin_requests_reject_placeholder">e.g. The hotel has no rooms left on the dates you asked for...</string>
+    <string name="admin_requests_approve_placeholder">e.g. Your request has been approved...</string>
+
+    <!-- Hotels and rooms -->
+    <string name="admin_hotels_add">Add hotel</string>
+    <string name="admin_hotels_empty">No hotels yet</string>
+    <string name="admin_hotels_load_failed">Could not load hotels</string>
+    <string name="admin_hotels_updated">Hotel updated</string>
+    <string name="admin_hotels_created">Hotel created</string>
+    <string name="admin_hotels_delete_title">Delete hotel</string>
+    <string name="admin_hotels_delete_body">Are you sure you want to delete this hotel? This cannot be undone.</string>
+    <string name="admin_hotels_deleted">Hotel deleted</string>
+    <string name="admin_hotels_image_uploaded">Image uploaded</string>
+    <string name="admin_hotels_name">Hotel name</string>
+    <string name="admin_hotels_name_placeholder">e.g. InterContinental</string>
+    <string name="admin_hotels_city">City</string>
+    <string name="admin_hotels_city_placeholder">Hanoi</string>
+    <string name="admin_hotels_address">Street address</string>
+    <string name="admin_hotels_description">Description</string>
+    <string name="admin_hotels_manage_rooms">Manage rooms</string>
+    <string name="admin_hotels_image">Image</string>
+    <string name="admin_hotels_upload">Upload</string>
+    <string name="admin_hotels_edit_title">Edit hotel</string>
+    <string name="admin_hotels_create_title">New hotel</string>
+    <string name="admin_hotels_no_rating">—</string>
+    <string name="admin_rooms_title">Rooms: %1$s</string>
+    <string name="admin_rooms_list_title">Rooms</string>
+    <string name="admin_rooms_add">Add room</string>
+    <string name="admin_rooms_empty">This hotel has no rooms yet</string>
+    <string name="admin_rooms_load_failed">Could not load rooms</string>
+    <string name="admin_rooms_updated">Room updated</string>
+    <string name="admin_rooms_created">Room created</string>
+    <string name="admin_rooms_delete_title">Delete room</string>
+    <string name="admin_rooms_delete_body">Are you sure you want to delete this room?</string>
+    <string name="admin_rooms_deleted">Room deleted</string>
+    <string name="admin_rooms_edit_title">Edit room</string>
+    <string name="admin_rooms_create_title">New room</string>
+    <string name="admin_rooms_name">Room name</string>
+    <string name="admin_rooms_name_placeholder">P.101</string>
+    <string name="admin_rooms_type">Room type</string>
+    <string name="admin_rooms_type_placeholder">Deluxe, Standard...</string>
+    <string name="admin_rooms_price">Price per night (VND)</string>
+    <string name="admin_rooms_capacity">Capacity</string>
+    <string name="admin_rooms_quantity">Quantity</string>
+    <string name="admin_rooms_quantity_hint">Set to 0 to stop new bookings while keeping the history</string>
+    <string name="admin_rooms_description">Room description</string>
+    <string name="admin_rooms_description_placeholder">Air conditioning, fridge...</string>
+    <string name="admin_rooms_counts">Capacity: %1$d · Quantity: %2$d</string>
+    <string name="admin_rooms_price_invalid">Price per night must be at least 1</string>
+    <string name="admin_rooms_capacity_invalid">Capacity must be at least 1</string>
+    <string name="admin_rooms_quantity_invalid">Quantity must be 0 or more</string>
+
+    <!-- Image upload -->
+    <string name="admin_image_type_invalid">Only JPG, PNG, WEBP or GIF images are accepted</string>
+    <string name="admin_image_too_large">The image is larger than 5MB, please choose a smaller one</string>
+    <string name="admin_image_read_failed">Could not read the selected image</string>
+
+    <!-- Reviews -->
+    <string name="admin_reviews_title">Guest reviews</string>
+    <string name="admin_reviews_only_unanswered">Only show unanswered reviews</string>
+    <string name="admin_reviews_empty">No reviews</string>
+    <string name="admin_reviews_load_failed">Could not load reviews</string>
+    <string name="admin_reviews_reply_required">Please write a reply</string>
+    <string name="admin_reviews_replied">Reply sent</string>
+    <string name="admin_reviews_remove_title">Delete reply?</string>
+    <string name="admin_reviews_remove_body">The hotel reply to this review will be deleted.</string>
+    <string name="admin_reviews_removed">Reply deleted</string>
+    <string name="admin_reviews_no_comment">(no comment)</string>
+    <string name="admin_reviews_reply">Reply: %1$s</string>
+    <string name="admin_reviews_answer">Reply</string>
+    <string name="admin_reviews_reply_title">Reply to %1$s</string>
+    <string name="admin_reviews_send">Send reply</string>
+    <string name="admin_reviews_reply_placeholder">The reply is shown publicly under the review, signed by the hotel.</string>
+    <string name="admin_reviews_score">%1$d/10</string>
+    <string name="admin_reviews_meta">%1$s · %2$s</string>
+
+    <!-- Support chat -->
+    <string name="admin_chat_empty">No conversations yet</string>
+    <string name="admin_chat_rooms_load_failed">Could not load conversations</string>
+    <string name="admin_chat_placeholder">Reply to the guest...</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thoi gian hieu ung chuyen canh, dung chung cho moi man hinh -->
+<resources>
+    <integer name="screen_transition_ms">280</integer>
+    <integer name="tab_transition_ms">220</integer>
+    <integer name="tab_exit_ms">90</integer>
+    <integer name="list_item_ms">320</integer>
+    <integer name="content_fade_ms">220</integer>
+</resources>
