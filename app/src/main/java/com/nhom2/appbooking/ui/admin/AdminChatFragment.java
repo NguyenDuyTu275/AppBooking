@@ -7,7 +7,9 @@ import android.view.View;
 
 import com.nhom2.appbooking.R;
 import com.nhom2.appbooking.data.ApiClient;
+import com.nhom2.appbooking.data.SupportChatSocket;
 import com.nhom2.appbooking.data.model.ChatRoomSummary;
+import com.nhom2.appbooking.data.model.SupportMessage;
 import com.nhom2.appbooking.databinding.ItemChatRoomBinding;
 import com.nhom2.appbooking.ui.ApiCallback;
 import com.nhom2.appbooking.ui.BindingAdapter;
@@ -17,11 +19,11 @@ import java.util.List;
 
 /**
  * Mục "Hỗ trợ khách hàng": các cuộc trò chuyện với khách, mới nhất lên đầu (cột trái của AdminSupportChat trên web).
- * Web nhận tin qua WebSocket; app tự tải lại vài giây một lần như màn chat của khách.
+ * Có tin mới qua WebSocket thì tải lại danh sách ngay; vẫn tải lại định kỳ phòng khi kết nối có vấn đề.
  */
 public class AdminChatFragment extends AdminListFragment {
 
-    private static final long POLL_INTERVAL_MS = 5000;
+    private static final long POLL_INTERVAL_MS = 15000;
     private static final long MAX_BADGE = 99;
 
     private final Handler handler = new Handler(Looper.getMainLooper());
@@ -33,7 +35,20 @@ public class AdminChatFragment extends AdminListFragment {
         }
     };
 
+    private final SupportChatSocket.Listener socketListener = new SupportChatSocket.Listener() {
+        @Override
+        public void onMessage(SupportMessage message) {
+            fetch(false);
+        }
+
+        @Override
+        public void onReconnected() {
+            fetch(false);
+        }
+    };
+
     private BindingAdapter<ChatRoomSummary, ItemChatRoomBinding> adapter;
+    private SupportChatSocket socket;
 
     @Override
     protected int titleRes() {
@@ -50,12 +65,14 @@ public class AdminChatFragment extends AdminListFragment {
     public void onResume() {
         super.onResume();
         handler.postDelayed(poll, POLL_INTERVAL_MS);
+        socket = SupportChatSocket.connect(requireContext(), socketListener);
     }
 
     @Override
     public void onPause() {
         super.onPause();
         handler.removeCallbacks(poll);
+        socket.close();
     }
 
     @Override

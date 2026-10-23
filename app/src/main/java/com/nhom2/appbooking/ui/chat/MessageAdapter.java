@@ -41,6 +41,18 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
         notifyDataSetChanged();
     }
 
+    /** Thêm một tin, trừ khi đã có (người gửi nhận cả phản hồi REST lẫn tin đẩy qua WebSocket). */
+    public boolean add(SupportMessage message) {
+        for (SupportMessage existing : messages) {
+            if (existing.id == message.id) {
+                return false;
+            }
+        }
+        messages.add(message);
+        notifyItemInserted(messages.size() - 1);
+        return true;
+    }
+
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

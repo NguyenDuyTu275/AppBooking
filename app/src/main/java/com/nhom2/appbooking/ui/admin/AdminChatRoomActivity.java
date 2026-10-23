@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.nhom2.appbooking.R;
 import com.nhom2.appbooking.data.ApiClient;
 import com.nhom2.appbooking.data.ApiRequests;
+import com.nhom2.appbooking.data.SupportChatSocket;
 import com.nhom2.appbooking.data.model.SupportMessage;
 import com.nhom2.appbooking.databinding.ActivityAdminChatRoomBinding;
 import com.nhom2.appbooking.ui.ApiCallback;
@@ -22,12 +23,15 @@ import com.nhom2.appbooking.ui.chat.MessageAdapter;
 
 import java.util.List;
 
-/** Admin trả lời một khách trong chat hỗ trợ (cột phải của AdminSupportChat trên web), tự cập nhật vài giây một lần. */
+/**
+ * Admin trả lời một khách trong chat hỗ trợ (cột phải của AdminSupportChat trên web). Tin mới tới ngay qua
+ * WebSocket; vẫn tải lại định kỳ phòng khi kết nối có vấn đề.
+ */
 public class AdminChatRoomActivity extends AppCompatActivity {
 
     private static final String EXTRA_ROOM_ID = "room_id";
     private static final String EXTRA_USERNAME = "username";
-    private static final long POLL_INTERVAL_MS = 4000;
+    private static final long POLL_INTERVAL_MS = 15000;
     /** Bằng SupportChatService.MAX_MESSAGE_LENGTH của backend. */
     private static final int MAX_MESSAGE_LENGTH = 2000;
 
@@ -41,7 +45,23 @@ public class AdminChatRoomActivity extends AppCompatActivity {
         }
     };
 
+    // Admin nhận tin của mọi phòng: chỉ hiện tin của phòng đang mở
+    private final SupportChatSocket.Listener socketListener = new SupportChatSocket.Listener() {
+        @Override
+        public void onMessage(SupportMessage message) {
+            if (message.roomId != null && message.roomId == roomId && showMessage(message) && !message.fromAdmin) {
+                markRead();
+            }
+        }
+
+        @Override
+        public void onReconnected() {
+            load();
+        }
+    };
+
     private ActivityAdminChatRoomBinding binding;
+    private SupportChatSocket socket;
     private long roomId;
     private long lastMessageId = -1;
 
@@ -61,6 +81,13 @@ public class AdminChatRoomActivity extends AppCompatActivity {
         binding.toolbar.setTitle(getIntent().getStringExtra(EXTRA_USERNAME));
         binding.toolbar.setNavigationOnClickListener(v -> finish());
 
+        // fragment_chat mặc định mở khung Trợ lý AI cho khách; phòng chat của admin chỉ dùng khung hỗ trợ
+        binding.chat.assistantHeader.setVisibility(View.GONE);
+        binding.chat.chatModeGroup.setVisibility(View.GONE);
+        binding.chat.assistantPanel.setVisibility(View.GONE);
+        binding.chat.assistantComposer.setVisibility(View.GONE);
+        binding.chat.supportPanel.setVisibility(View.VISIBLE);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setStackFromEnd(true);
         binding.chat.recyclerMessages.setLayoutManager(layoutManager);
@@ -75,12 +102,24 @@ public class AdminChatRoomActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         handler.post(poll);
+        socket = SupportChatSocket.connect(this, socketListener);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         handler.removeCallbacks(poll);
+        socket.close();
+    }
+
+    /** Hiện tin vừa gửi hoặc vừa được đẩy tới; false nếu tin đã có. */
+    private boolean showMessage(SupportMessage message) {
+        if (!adapter.add(message)) {
+            return false;
+        }
+        lastMessageId = Math.max(lastMessageId, message.id);
+        binding.chat.recyclerMessages.scrollToPosition(adapter.getItemCount() - 1);
+        return true;
     }
 
     private void load() {
@@ -130,7 +169,7 @@ public class AdminChatRoomActivity extends AppCompatActivity {
                     protected void onSuccess(SupportMessage body) {
                         binding.chat.buttonSend.setEnabled(true);
                         binding.chat.editMessage.setText("");
-                        load();
+                        showMessage(body);
                     }
 
                     @Override

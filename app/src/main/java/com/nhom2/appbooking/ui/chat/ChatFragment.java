@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.nhom2.appbooking.R;
 import com.nhom2.appbooking.data.ApiClient;
 import com.nhom2.appbooking.data.ApiRequests;
+import com.nhom2.appbooking.data.SupportChatSocket;
 import com.nhom2.appbooking.data.model.SupportChatHistory;
 import com.nhom2.appbooking.data.model.SupportMessage;
 import com.nhom2.appbooking.databinding.FragmentChatBinding;
@@ -36,16 +37,33 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.Collections;
 import java.util.List;
 
-/** Tab "Hỗ trợ": chat với nhân viên khách sạn, tự cập nhật vài giây một lần khi đang mở. */
+/**
+ * Tab "Hỗ trợ": chat với nhân viên khách sạn. Tin mới tới ngay qua WebSocket khi khung hỗ trợ đang mở;
+ * vẫn tải lại định kỳ phòng khi kết nối có vấn đề.
+ */
 public class ChatFragment extends Fragment {
 
-    private static final long POLL_INTERVAL_MS = 4000;
+    private static final long POLL_INTERVAL_MS = 15000;
 
     private FragmentChatBinding binding;
     private final MessageAdapter adapter = new MessageAdapter();
     private final AssistantMessageAdapter assistantAdapter = new AssistantMessageAdapter();
     private final Handler handler = new Handler(Looper.getMainLooper());
     private long lastMessageId = -1;
+    private SupportChatSocket socket;
+    private final SupportChatSocket.Listener socketListener = new SupportChatSocket.Listener() {
+        @Override
+        public void onMessage(SupportMessage message) {
+            if (isSupportMode() && showMessage(message) && message.fromAdmin) {
+                markRead();
+            }
+        }
+
+        @Override
+        public void onReconnected() {
+            load();
+        }
+    };
     private ActivityResultLauncher<Intent> attachmentPicker;
     private boolean attachmentForAssistant;
     private Uri assistantAttachmentUri;
@@ -125,6 +143,7 @@ public class ChatFragment extends Fragment {
         super.onResume();
         if (isSupportMode()) {
             handler.post(poll);
+            openSocket();
         }
     }
 
@@ -132,6 +151,31 @@ public class ChatFragment extends Fragment {
     public void onPause() {
         super.onPause();
         handler.removeCallbacks(poll);
+        closeSocket();
+    }
+
+    private void openSocket() {
+        if (socket == null) {
+            socket = SupportChatSocket.connect(requireContext(), socketListener);
+        }
+    }
+
+    private void closeSocket() {
+        if (socket != null) {
+            socket.close();
+            socket = null;
+        }
+    }
+
+    /** Hiện tin vừa gửi hoặc vừa được đẩy tới; false nếu tin đã có. */
+    private boolean showMessage(SupportMessage message) {
+        if (binding == null || !adapter.add(message)) {
+            return false;
+        }
+        lastMessageId = Math.max(lastMessageId, message.id);
+        binding.textEmpty.setVisibility(View.GONE);
+        binding.recyclerMessages.scrollToPosition(adapter.getItemCount() - 1);
+        return true;
     }
 
     private void load() {
@@ -191,7 +235,7 @@ public class ChatFragment extends Fragment {
                     protected void onSuccess(SupportMessage body) {
                         binding.buttonSend.setEnabled(true);
                         binding.editMessage.setText("");
-                        load();
+                        showMessage(body);
                     }
 
                     @Override
@@ -327,6 +371,9 @@ public class ChatFragment extends Fragment {
         handler.removeCallbacks(poll);
         if (supportMode && isResumed()) {
             handler.post(poll);
+            openSocket();
+        } else {
+            closeSocket();
         }
     }
 
@@ -341,6 +388,7 @@ public class ChatFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         handler.removeCallbacks(poll);
+        closeSocket();
         binding = null;
     }
 }
