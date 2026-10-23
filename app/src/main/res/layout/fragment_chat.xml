@@ -3,61 +3,391 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     android:orientation="vertical">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_messages"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:padding="12dp" />
-
-        <TextView
-            android:id="@+id/text_empty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="32dp"
-            android:text="@string/chat_empty"
-            android:textColor="@color/text_secondary"
-            android:visibility="gone" />
-    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_ai_header"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="16dp">
 
-        <EditText
-            android:id="@+id/edit_message"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/bg_input"
-            android:hint="@string/chat_hint"
-            android:inputType="textMultiLine|textCapSentences"
-            android:maxLines="4"
-            android:minHeight="44dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textSize="15sp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_send"
-            style="@style/Widget.AppBooking.Button.Icon"
+        <TextView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:contentDescription="@string/send"
-            app:icon="@drawable/ic_send" />
+            android:background="@drawable/bg_ai_avatar"
+            android:gravity="center"
+            android:text="AI"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/assistant_title"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/assistant_subtitle"
+                android:textColor="#DCE8FF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_ai_status"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="6dp"
+            android:text="@string/assistant_preview_badge"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/chat_mode_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        app:checkedButton="@id/button_mode_assistant"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_mode_assistant"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:text="@string/assistant_mode"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            app:icon="@drawable/ic_chat"
+            app:iconGravity="textStart"
+            app:iconSize="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_mode_support"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:text="@string/human_support_mode"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            app:icon="@drawable/ic_person"
+            app:iconGravity="textStart"
+            app:iconSize="16dp" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <LinearLayout
+        android:id="@+id/assistant_panel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/assistant_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/assistant_welcome_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/assistant_welcome_body"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/assistant_suggestions_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_suggestion_hotel"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="44dp"
+                    android:text="@string/assistant_suggestion_hotel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    app:icon="@drawable/ic_search"
+                    app:iconGravity="textStart"
+                    app:iconSize="17dp"
+                    app:iconTint="@color/link" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_suggestion_booking"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="44dp"
+                    android:text="@string/assistant_suggestion_booking"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    app:icon="@drawable/ic_receipt"
+                    app:iconGravity="textStart"
+                    app:iconSize="17dp"
+                    app:iconTint="@color/link" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_suggestion_payment"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="44dp"
+                    android:text="@string/assistant_suggestion_payment"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    app:icon="@drawable/ic_bank"
+                    app:iconGravity="textStart"
+                    app:iconSize="17dp"
+                    app:iconTint="@color/link" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_assistant_messages"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:paddingStart="12dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="8dp"
+                android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_preview_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="@string/assistant_preview_notice"
+            android:textColor="@color/text_secondary"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/assistant_composer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/text_assistant_attachment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="4dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_assistant_emoji"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="44dp"
+                android:layout_height="46dp"
+                android:contentDescription="@string/chat_emojis"
+                android:minWidth="0dp"
+                android:padding="0dp"
+                android:text="😊"
+                android:textSize="18sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_assistant_attach"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="44dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="4dp"
+                android:contentDescription="@string/chat_attach"
+                android:minWidth="0dp"
+                android:padding="0dp"
+                android:text="＋"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edit_assistant_message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input"
+                android:hint="@string/assistant_hint"
+                android:imeOptions="actionSend"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLines="4"
+                android:minHeight="46dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_assistant_send"
+                style="@style/Widget.AppBooking.Button.Icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/send"
+                app:icon="@drawable/ic_send" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/support_panel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_messages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:padding="12dp" />
+
+            <TextView
+                android:id="@+id/text_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="32dp"
+                android:text="@string/chat_empty"
+                android:textColor="@color/text_secondary"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_support_emoji"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="44dp"
+                android:layout_height="46dp"
+                android:contentDescription="@string/chat_emojis"
+                android:minWidth="0dp"
+                android:padding="0dp"
+                android:text="😊"
+                android:textSize="18sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_support_attach"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="44dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="4dp"
+                android:contentDescription="@string/chat_attach"
+                android:minWidth="0dp"
+                android:padding="0dp"
+                android:text="＋"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edit_message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input"
+                android:hint="@string/chat_hint"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLines="4"
+                android:minHeight="44dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="15sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_send"
+                style="@style/Widget.AppBooking.Button.Icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/send"
+                app:icon="@drawable/ic_send" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

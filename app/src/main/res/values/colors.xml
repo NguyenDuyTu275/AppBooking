@@ -24,6 +24,9 @@
     <color name="warning_bg">#FFF3CD</color>
     <color name="error">#CC0000</color>
     <color name="error_bg">#FEF0F0</color>
+    <color name="assistant_blue">#3157D5</color>
+    <color name="assistant_purple">#7556D8</color>
+    <color name="assistant_bubble">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
 
     <!-- Nhan trang thai o trang quan tri: bang mau the <Tag> cua Ant Design ma web dung -->

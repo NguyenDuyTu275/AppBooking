@@ -30,6 +30,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final String EXTRA_OPEN_BOOKINGS = "open_bookings";
+    private static final String EXTRA_OPEN_ASSISTANT = "open_assistant";
     private static final String STATE_TAB = "tab";
 
     private ActivityMainBinding binding;
@@ -41,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
     public static void openBookings(Context context) {
         Intent intent = new Intent(context, MainActivity.class)
                 .putExtra(EXTRA_OPEN_BOOKINGS, true)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        context.startActivity(intent);
+    }
+
+    public static void openAssistant(Context context) {
+        Intent intent = new Intent(context, MainActivity.class)
+                .putExtra(EXTRA_OPEN_ASSISTANT, true)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         context.startActivity(intent);
     }
@@ -64,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setUpToolbarActions();
+        AssistantFab.attach(this, binding.container);
 
         binding.bottomNav.setOnItemSelectedListener(item -> {
             showTab(item.getItemId());
@@ -72,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             selectTab(tabFrom(getIntent()));
+            if (getIntent().getBooleanExtra(EXTRA_OPEN_ASSISTANT, false)) {
+                showAssistant();
+            }
         } else {
             // Fragment đã được khôi phục, chỉ cần đặt lại tiêu đề
             currentTab = savedInstanceState.getInt(STATE_TAB, R.id.nav_home);
@@ -151,6 +163,9 @@ public class MainActivity extends AppCompatActivity {
         super.onNewIntent(intent);
         setIntent(intent);
         selectTab(tabFrom(intent));
+        if (intent.getBooleanExtra(EXTRA_OPEN_ASSISTANT, false)) {
+            showAssistant();
+        }
     }
 
     @Override
@@ -160,7 +175,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int tabFrom(Intent intent) {
+        if (intent.getBooleanExtra(EXTRA_OPEN_ASSISTANT, false)) {
+            return R.id.nav_chat;
+        }
         return intent.getBooleanExtra(EXTRA_OPEN_BOOKINGS, false) ? R.id.nav_bookings : R.id.nav_home;
+    }
+
+    private void showAssistant() {
+        binding.bottomNav.setSelectedItemId(R.id.nav_chat);
+        showTab(R.id.nav_chat);
+        getSupportFragmentManager().executePendingTransactions();
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
+        if (fragment instanceof ChatFragment) {
+            ((ChatFragment) fragment).showAssistantMode();
+        }
     }
 
     private void selectTab(int tabId) {

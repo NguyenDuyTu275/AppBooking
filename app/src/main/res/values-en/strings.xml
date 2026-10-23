@@ -153,6 +153,28 @@
     <string name="chat_empty">Ask us anything about bookings, payment or hotels. We will reply here.</string>
     <string name="chat_hint">Type a message…</string>
     <string name="send">Send</string>
+    <string name="assistant_title">AI booking assistant</string>
+    <string name="assistant_subtitle">Always here to help you</string>
+    <string name="assistant_preview_badge">PREVIEW</string>
+    <string name="assistant_mode">AI assistant</string>
+    <string name="human_support_mode">Support staff</string>
+    <string name="assistant_welcome_title">Hi! How can I help?</string>
+    <string name="assistant_welcome_body">Ask quickly about hotels, bookings or payment. Pick a suggestion below to get started.</string>
+    <string name="assistant_suggestions_title">SUGGESTIONS FOR YOU</string>
+    <string name="assistant_suggestion_hotel">Find a suitable hotel</string>
+    <string name="assistant_suggestion_booking">How do I book a room?</string>
+    <string name="assistant_suggestion_payment">How to pay</string>
+    <string name="assistant_hint">Type your question…</string>
+    <string name="assistant_preview_notice">Preview · sample answers, not connected to AI yet</string>
+    <string name="chat_emojis">Choose an emoji</string>
+    <string name="chat_attach">Attach an image or file</string>
+    <string name="open_ai_assistant">Open the AI assistant</string>
+    <string name="chat_image_attachment">Attached image</string>
+    <string name="chat_choose_attachment">Choose attachment type</string>
+    <string name="chat_choose_image">Choose an image</string>
+    <string name="chat_choose_file">Choose a file</string>
+    <string name="chat_attachment_name">📎 %1$s</string>
+    <string name="support_attachment_text_only">The server only accepts text for now. The message will include the file name; the image/file itself is not uploaded.</string>
 
     <!-- Account -->
     <string name="role_admin">Administrator</string>
